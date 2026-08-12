@@ -1,85 +1,24 @@
 /* ===========================================================
    Stackly HR — About page
-   1) Shared header + full-screen mobile nav (same pattern as
-      contact.html / blog.html): fixed, transparent-over-hero
-      header that solidifies on scroll; hamburger opens a
-      true full-screen menu with its own close (X) button.
-   2) Page animations — ported directly from the original,
-      known-working build (same class names, same timelines),
-      so the motion is authentic rather than guessed. The only
-      addition is a ScrollTrigger.refresh() pass once the page
-      has fully loaded, which corrects trigger positions that
-      were getting miscalculated before background images had
-      finished loading — the actual cause of sections
-      appearing permanently blank after a reload.
+   Header state + mobile nav open/close are now handled by the
+   SHARED js/index.js (same .is-scrolled / .is-open pattern as
+   index.html and services.html), so that logic has been
+   removed from this file to avoid double-binding.
 
-   NOTE: if js/index.js already has its own mobile-nav toggle
-   code bound to .hamburger / #mobileNav, remove it — this
-   file fully replaces that behavior and the two could
-   double-fire.
+   This file only covers what's unique to About: hero load-in +
+   parallax, mission/vision/values, our story reveal, stats
+   counters, trusted/press marquee, team grid, and the CTA
+   journey section — plus a ScrollTrigger.refresh() pass once
+   the page has fully loaded, which corrects trigger positions
+   that were getting miscalculated before background images had
+   finished loading (the original cause of sections appearing
+   permanently blank after a reload).
 =========================================================== */
 
 /* ===========================================================
-   HEADER + FULL-SCREEN MOBILE NAV
+   HERO — load-in sequence + mouse parallax on floating images
 =========================================================== */
 document.addEventListener('DOMContentLoaded', () => {
-
-    const siteHeader = document.querySelector('.site-header');
-    const heroEl = document.querySelector('section'); // hero is always first
-  
-    const updateHeaderState = () => {
-      if (!siteHeader) return;
-      const threshold = heroEl ? Math.max(heroEl.offsetHeight - 90, 40) : 40;
-      siteHeader.classList.toggle('scrolled', window.scrollY > threshold);
-    };
-    updateHeaderState();
-    window.addEventListener('scroll', updateHeaderState, { passive: true });
-    window.addEventListener('resize', updateHeaderState);
-  
-    const hamburger = document.querySelector('.hamburger');
-    const mobileNav = document.getElementById('mobileNav');
-    const mobileNavClose = document.querySelector('.mobile-nav-close');
-  
-    if (hamburger && mobileNav) {
-      const openNav = () => {
-        mobileNav.classList.add('open');
-        hamburger.setAttribute('aria-expanded', 'true');
-        document.body.classList.add('nav-open');
-        if (mobileNavClose) mobileNavClose.focus({ preventScroll: true });
-  
-        if (window.gsap) {
-          gsap.fromTo('.mobile-nav-links a',
-            { x: 24, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.5, stagger: 0.06, ease: 'power3.out', delay: 0.15 }
-          );
-          gsap.fromTo('.mobile-nav-ctas .btn',
-            { y: 14, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.45, stagger: 0.08, ease: 'power2.out', delay: 0.35 }
-          );
-        }
-      };
-      const closeNav = () => {
-        mobileNav.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('nav-open');
-        hamburger.focus({ preventScroll: true });
-      };
-  
-      hamburger.addEventListener('click', () => {
-        mobileNav.classList.contains('open') ? closeNav() : openNav();
-      });
-      if (mobileNavClose) mobileNavClose.addEventListener('click', closeNav);
-      mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
-      window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && mobileNav.classList.contains('open')) closeNav();
-      });
-    }
-  });
-  
-  /* ===========================================================
-     HERO — load-in sequence + mouse parallax on floating images
-  =========================================================== */
-  document.addEventListener('DOMContentLoaded', () => {
     if (!window.gsap) return;
   
     const aboutTl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
@@ -320,10 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   /* ===========================================================
-     TEAM + CTA JOURNEY — same reveal language as the rest of
-     the page (not present in the original script, added for
-     visual consistency since these were the two sections
-     showing up blank).
+     TEAM + CTA JOURNEY
   =========================================================== */
   document.addEventListener('DOMContentLoaded', () => {
     if (!window.gsap || !window.ScrollTrigger) return;

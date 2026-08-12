@@ -1,7 +1,11 @@
 /* =========================================================
    STACKLY — About page
    Relies on css/index.css for tokens, header/footer, buttons,
-   .section / .section-head / .eyebrow / .why-grid (shared).
+   .section / .section-head / .eyebrow / .why-grid, AND the
+   shared header scroll-state (.is-scrolled) + mobile nav
+   (.mobile-nav-head / .mobile-nav-close / .is-open) — all of
+   that now lives in index.css only, so this file no longer
+   duplicates or overrides it.
    ========================================================= */
 
    .section-title{ font-size:clamp(28px, 3.6vw, 40px); line-height:1.1; }
@@ -372,104 +376,12 @@
 html, body{ overflow-x: hidden; max-width: 100vw; }
 
 /* =========================================================
-   SHARED HEADER OVERRIDE — matches contact.html pattern
-   (transparent-on-hero header that solidifies on scroll,
-   full-screen mobile nav). Loads after index.css, so these
-   rules win the cascade without editing that shared file.
-   ========================================================= */
-
-.site-header{
-  position: fixed; top:0; left:0; right:0; z-index: 60;
-  background: transparent;
-  border-bottom: 1px solid transparent;
-  transition: background .45s var(--ease), border-color .45s var(--ease), box-shadow .45s var(--ease);
-}
-.site-header .wrap{ height: var(--header-h); }
-.brand-logo{ transition: filter .4s ease; }
-
-.main-nav a{ color:#fff; transition: color .4s ease; }
-.main-nav a[aria-current="page"]{ color: var(--brass); }
-.header-cta .btn-login{ border-color: rgba(241,239,228,0.35); color:#fff; }
-.header-cta .btn-login:hover{ border-color: var(--brass); color: var(--brass); }
-.hamburger span{ background:#fff; }
-
-.site-header.scrolled{
-  background: rgba(241,239,228,0.92);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--paper-line);
-  box-shadow: 0 10px 28px -20px rgba(18,35,31,0.4);
-}
-.site-header.scrolled .brand-logo{ filter: brightness(0); }
-.site-header.scrolled .main-nav a{ color: var(--text); }
-.site-header.scrolled .main-nav a[aria-current="page"]{ color: var(--brass-dark); }
-.site-header.scrolled .header-cta .btn-login{ border-color: var(--paper-line); color: var(--text); }
-.site-header.scrolled .hamburger span{ background: var(--text); }
-
-/* ---------- Full-screen mobile nav ---------- */
-.mobile-nav{
-  position: fixed; inset: 0;
-  width: 100%; height: 100dvh;
-  background: var(--ink); color: var(--paper);
-  display:flex; flex-direction:column;
-  padding: calc(20px + env(safe-area-inset-top)) 28px calc(28px + env(safe-area-inset-bottom));
-  box-sizing: border-box;
-  transform: translateX(100%);
-  opacity: 0;
-  transition: transform .5s var(--ease), opacity .4s ease;
-  z-index: 65;
-  overflow-y: auto;
-}
-.mobile-nav.open{ transform: translateX(0); opacity:1; }
-
-.mobile-nav-top{
-  display:flex; align-items:center; justify-content:space-between;
-  padding-bottom: 20px; margin-bottom: 12px;
-  border-bottom: 1px solid var(--ink-line);
-}
-.mobile-nav-brand .brand-logo{ height:30px; }
-.mobile-nav-close{
-  width:44px; height:44px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  background: rgba(241,239,228,0.06); border:1px solid var(--ink-line);
-  color: var(--paper); transition: background .3s ease, transform .3s ease;
-}
-.mobile-nav-close svg{ width:18px; height:18px; }
-.mobile-nav-close:hover{ background: var(--brass); border-color: var(--brass); transform: rotate(90deg); }
-
-.mobile-nav-links{ display:flex; flex-direction:column; gap:2px; margin-top: 8px; }
-.mobile-nav-links a{
-  padding: 16px 4px; font-size: 1.3rem; font-family: var(--font-display); font-weight:500;
-  border-bottom: 1px solid var(--ink-line); color: rgba(241,239,228,0.92);
-  transition: color .3s ease, padding-left .3s ease;
-}
-.mobile-nav-links a:hover,
-.mobile-nav-links a:active{ color: var(--brass); padding-left: 10px; }
-.mobile-nav-links a[aria-current="page"]{ color: var(--brass); }
-
-.mobile-nav-ctas{ display:flex; gap:10px; margin-top: 28px; }
-.mobile-nav-ctas .btn{ flex:1; justify-content:center; }
-.mobile-nav-ctas .btn-line-ink{ border-color: var(--ink-line); color: var(--paper); }
-.mobile-nav-foot{
-  margin-top:auto; padding-top: 28px; display:flex; flex-direction:column; gap:6px;
-  font-size:0.85rem; color: rgba(241,239,228,0.55);
-}
-
-body.nav-open{ overflow: hidden; }
-body.nav-open .site-header{ opacity:0; pointer-events:none; transition:none; }
-
-@media (max-width: 860px){
-  .mobile-nav-links a{ font-size: 1.15rem; padding: 14px 4px; }
-  .mobile-nav-brand .brand-logo{ height:26px; }
-}
-
-/* =========================================================
    CONTENT RELIABILITY FALLBACK
-   Belt-and-braces alongside js/about-combined.js: the actual
-   reveal animations are authored and controlled there now, so
-   this just sets a floor in case JS fails to load at all —
-   it does not fight the animation while in progress, since
-   GSAP sets real values inline (which beats a plain,
-   non-!important stylesheet rule).
+   Belt-and-braces alongside js/about.js: the actual reveal
+   animations are authored and controlled there, so this just
+   sets a floor in case JS fails to load at all — it does not
+   fight the animation while in progress, since GSAP sets real
+   values inline (which beats a plain, non-!important rule).
    ========================================================= */
 .value-card,
 .team-card,

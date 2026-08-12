@@ -8,11 +8,11 @@ const officeAccents = {
     "Sydney, AU": "#9AA5B1"
   };
   const teamSnapshot = [
-    { src: "https://images.unsplash.com/photo-1758874384555-37d50c0ee81a?auto=format&fit=crop&w=700&q=80", tag: "Payroll", title: "Payroll Ops Review — New York HQ" },
-    { src: "https://images.unsplash.com/photo-1758518730384-be3d205838e8?auto=format&fit=crop&w=700&q=80", tag: "Talent", title: "Search Pipeline Sync — London" },
-    { src: "https://images.unsplash.com/photo-1758518731706-be5d5230e5a5?auto=format&fit=crop&w=700&q=80", tag: "Benefits", title: "Carrier Negotiation — Toronto" },
-    { src: "https://images.unsplash.com/photo-1758873269276-9518d0cb4a0b?auto=format&fit=crop&w=700&q=80", tag: "Onboarding", title: "New Admin Orientation — Austin" },
-    { src: "https://images.unsplash.com/photo-1745015446589-7ee6f702d8c1?auto=format&fit=crop&w=700&q=80", tag: "Analytics", title: "Platform Reporting Review — Singapore" }
+    { src: "../assets/i4.webp", tag: "Payroll", title: "Payroll Ops Review — New York HQ" },
+    { src: "../assets/b4.webp", tag: "Talent", title: "Search Pipeline Sync — London" },
+    { src: "../assets/S4.webp", tag: "Benefits", title: "Carrier Negotiation — Toronto" },
+    { src: "../assets/A4.webp", tag: "Onboarding", title: "New Admin Orientation — Austin" },
+    { src: "../assets/S8.webp", tag: "Analytics", title: "Platform Reporting Review — Singapore" }
   ];
   
   // ---------- STACKLY ADMIN DATA ----------

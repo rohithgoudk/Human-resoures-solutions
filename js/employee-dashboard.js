@@ -7,11 +7,11 @@ const serviceLineAccents = {
   "HR Analytics": "#9AA5B1"
 };
 const teamSnapshot = [
-  { src: "https://images.unsplash.com/photo-1758874384555-37d50c0ee81a?auto=format&fit=crop&w=700&q=80", tag: "Payroll", title: "Payroll Review Session — Northlight Robotics" },
-  { src: "https://images.unsplash.com/photo-1758518730384-be3d205838e8?auto=format&fit=crop&w=700&q=80", tag: "Talent", title: "Offer Extended — Tidewater Systems Search" },
-  { src: "https://images.unsplash.com/photo-1758518731706-be5d5230e5a5?auto=format&fit=crop&w=700&q=80", tag: "Benefits", title: "Open Enrollment Walkthrough — Harborview Retail" },
-  { src: "https://images.unsplash.com/photo-1758873269276-9518d0cb4a0b?auto=format&fit=crop&w=700&q=80", tag: "Onboarding", title: "Day One — Crestline Manufacturing" },
-  { src: "https://images.unsplash.com/photo-1745015446589-7ee6f702d8c1?auto=format&fit=crop&w=700&q=80", tag: "Analytics", title: "Quarterly Reporting Review — Bellcrest Analytics" }
+  { src: "../assets/S9.webp", tag: "Payroll", title: "Payroll Review Session — Northlight Robotics" },
+  { src: "../assets/i8.webp", tag: "Talent", title: "Offer Extended — Tidewater Systems Search" },
+  { src: "../assets/B10.webp", tag: "Benefits", title: "Open Enrollment Walkthrough — Harborview Retail" },
+  { src: "../assets/A5.webp", tag: "Onboarding", title: "Day One — Crestline Manufacturing" },
+  { src: "../assets/S14.webp", tag: "Analytics", title: "Quarterly Reporting Review — Bellcrest Analytics" }
 ];
 const clientEngagements = [
   { id: 1, name: "Northlight Robotics — Onboarding Experience Redesign", facility: "Employee Onboarding", site: "Employee Onboarding", type: "Onboarding Program Build", status: "Active", progress: 72, endDate: "Dec 2025", budget: "$84,000", manager: "Elena Marsh" },

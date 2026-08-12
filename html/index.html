@@ -14,7 +14,6 @@
   <div class="wrap">
     <a href="index.html" class="brand">
       <img src="../assets/Logo.webp" alt="" class="brand-logo">
-      
     </a>
 
     <nav class="main-nav" aria-label="Primary">
@@ -43,11 +42,23 @@
 
 <!-- ============ MOBILE NAV ============ -->
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
-  <a href="index.html" aria-current="page">Home</a>
-  <a href="services.html">Services</a>
-  <a href="about.html">About</a>
-  <a href="blog.html">Blog</a>
-  <a href="contact.html">Contact</a>
+  <div class="mobile-nav-head">
+    <a href="index.html" class="brand mobile-brand">
+      <img src="../assets/Logo.webp" alt="" class="brand-logo">
+    </a>
+    <button class="mobile-nav-close" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+
+  <div class="mobile-nav-links">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
   <div class="mobile-nav-ctas">
     <a href="login.html" class="btn btn-line-ink">
       <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.7"/><path d="M5 20c1.3-3.6 4-5.4 7-5.4s5.7 1.8 7 5.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
@@ -58,6 +69,7 @@
       Sign Up
     </a>
   </div>
+
   <div class="mobile-nav-foot">
     <span>stackly@info.com</span>
     <span>+161 45674567</span>
@@ -464,7 +476,6 @@
       <div class="footer-brand">
         <a href="index.html" class="brand">
           <img src="../assets/Logo.webp" alt="" class="brand-logo">
-          
         </a>
         <p>A full-service human resources partner for growing companies — payroll, recruiting, benefits and culture, handled end to end.</p>
         <div class="footer-social">
@@ -526,8 +537,6 @@
   </div>
 </footer>
 
-<script src="../assets/i20.webp"></script>
-<script src="../assets/i21.webp"></script>
 <script src="../js/index.js"></script>
 </body>
 </html>
