@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Stackly — Human Resources Solutions</title>
+<meta name="description" content="Practical HR guidance from Stackly's specialists — payroll, compliance, benefits, culture and everything in between.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="../css/index.css">
+<link rel="stylesheet" href="../css/blog.css">
+</head>
+<body class="hero-page">
+
+<!-- ============ HEADER (shared) ============ -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="../assets/Logo.webp" alt="" class="brand-logo">
+      
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="blog.html" aria-current="page">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-cta">
+      <a href="login.html" class="btn btn-line btn-login">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.7"/><path d="M5 20c1.3-3.6 4-5.4 7-5.4s5.7 1.8 7 5.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        Login
+      </a>
+      <a href="signup.html" class="btn btn-brass btn-signup">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="10" cy="8" r="3.4" stroke="currentColor" stroke-width="1.7"/><path d="M3 20c1.2-3.4 3.7-5.1 7-5.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M18 8v6M15 11h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        Sign Up
+      </a>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MOBILE NAV (shared — full-screen, matches contact.html) ============ -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+  <div class="mobile-nav-top">
+    <a href="index.html" class="brand mobile-nav-brand">
+      <img src="../assets/Logo.webp" alt="Stackly" class="brand-logo">
+    </a>
+    <button class="mobile-nav-close" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+
+  <div class="mobile-nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="blog.html" aria-current="page">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="mobile-nav-ctas">
+    <a href="404.html" class="btn btn-line-ink">
+      <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.7"/><path d="M5 20c1.3-3.6 4-5.4 7-5.4s5.7 1.8 7 5.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      Login
+    </a>
+    <a href="404.html" class="btn btn-brass">
+      <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><circle cx="10" cy="8" r="3.4" stroke="currentColor" stroke-width="1.7"/><path d="M3 20c1.2-3.4 3.7-5.1 7-5.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M18 8v6M15 11h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      Sign Up
+    </a>
+  </div>
+  <div class="mobile-nav-foot">
+    <span>stackly@info.com</span>
+    <span>+161 45674567</span>
+  </div>
+</nav>
+
+<!-- ============ BLOG HERO ============ -->
+<section class="blog-message-hero">
+  <div class="blog-hero-bg" style="background-image:url('../assets/B1.webp');"></div>
+  <div class="blog-hero-overlay"></div>
+
+  <div class="blog-message-content">
+    <span class="blog-hero-badge">The Briefing</span>
+    <h1 class="blog-hero-title">Practical guidance for the modern HR leader.</h1>
+    <p class="blog-hero-excerpt">Compliance checklists, benefits strategy and culture playbooks from the specialists who run people-ops for 500+ companies.</p>
+  </div>
+</section>
+
+<!-- ============ FEATURED POST ============ -->
+<section class="featured-blog-section">
+  <div class="featured-container">
+    <div class="featured-section-header">
+      <span class="badge-text glass-badge-dark eyebrow">Editor's Pick</span>
+      <h2 class="section-title featured-section-title">Featured story</h2>
+    </div>
+
+    <a href="404.html" class="featured-post-card-large">
+      <div class="featured-img-wrap">
+        <div class="featured-bg" style="background-image:url('../assets/B2.webp');"></div>
+        <div class="featured-img-overlay"></div>
+        <div class="blog-category-badge">Deep Dive</div>
+      </div>
+
+      <div class="featured-content-large">
+        <div class="post-meta">
+          <span class="meta-date"><i class="fa-regular fa-calendar"></i> Nov 3, 2026</span>
+          <span class="meta-dot">•</span>
+          <span class="meta-read"><i class="fa-regular fa-clock"></i> 9 min read</span>
+        </div>
+
+        <h3 class="featured-post-title-large">The State of HR in 2026: What's Actually Changing</h3>
+        <p class="featured-post-excerpt-large">We surveyed 300+ People leaders on hiring pace, pay transparency laws and AI in recruiting. The short version: budgets are down, expectations are up, and the teams pulling ahead have stopped treating HR as an afterthought.</p>
+
+        <div class="featured-author-bar">
+          <div class="author-avatar" style="background-image:url('../assets/S21.webp');"></div>
+          <div class="author-info">
+            <span class="author-name">Renata Osei</span>
+            <span class="author-role">Co-Founder & CEO</span>
+          </div>
+          <div class="btn-read-arrow">
+            <span>Read Story</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ FILTERABLE ARTICLES ============ -->
+<section class="latest-articles-section">
+  <div class="articles-container">
+
+    <div class="articles-header">
+      <span class="badge-text eyebrow">Journal</span>
+      <h2 class="section-title">Latest articles</h2>
+      <p class="section-subtitle">Practical guidance from the specialists who run people-ops day to day.</p>
+    </div>
+
+    <div class="blog-filters">
+      <button class="filter-btn active" data-filter="all">All Stories</button>
+      <button class="filter-btn" data-filter="compliance">Compliance</button>
+      <button class="filter-btn" data-filter="benefits">Benefits</button>
+      <button class="filter-btn" data-filter="culture">Culture</button>
+    </div>
+
+    <div class="articles-grid">
+
+      <a href="404.html" class="article-card item-compliance">
+        <div class="article-img-wrap">
+          <div class="article-bg" style="background-image:url('../assets/B3.webp');"></div>
+          <div class="article-tag">Compliance</div>
+        </div>
+        <div class="article-content">
+          <span class="article-date">Oct 12, 2026</span>
+          <h3 class="article-title">Your Payroll Compliance Checklist for Q1</h3>
+          <div class="article-footer">
+            <span>5 min read</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+
+      <a href="404.html" class="article-card item-benefits">
+        <div class="article-img-wrap">
+          <div class="article-bg" style="background-image:url('../assets/B4.webp');"></div>
+          <div class="article-tag">Benefits</div>
+        </div>
+        <div class="article-content">
+          <span class="article-date">Sep 28, 2026</span>
+          <h3 class="article-title">Designing Benefits Packages for Hybrid Teams</h3>
+          <div class="article-footer">
+            <span>6 min read</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+
+      <a href="404.html" class="article-card item-culture">
+        <div class="article-img-wrap">
+          <div class="article-bg" style="background-image:url('../assets/B5.webp');"></div>
+          <div class="article-tag">Culture</div>
+        </div>
+        <div class="article-content">
+          <span class="article-date">Sep 15, 2026</span>
+          <h3 class="article-title">Reading the Room: Engagement Surveys That Work</h3>
+          <div class="article-footer">
+            <span>5 min read</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+
+      <a href="404.html" class="article-card item-compliance">
+        <div class="article-img-wrap">
+          <div class="article-bg" style="background-image:url('../assets/B6.webp');"></div>
+          <div class="article-tag">Compliance</div>
+        </div>
+        <div class="article-content">
+          <span class="article-date">Aug 30, 2026</span>
+          <h3 class="article-title">Pay Transparency Laws: A State-by-State Tracker</h3>
+          <div class="article-footer">
+            <span>7 min read</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+
+      <a href="404.html" class="article-card item-culture">
+        <div class="article-img-wrap">
+          <div class="article-bg" style="background-image:url('../assets/B7.webp');"></div>
+          <div class="article-tag">Onboarding</div>
+        </div>
+        <div class="article-content">
+          <span class="article-date">Aug 14, 2026</span>
+          <h3 class="article-title">Building an Onboarding Experience People Remember</h3>
+          <div class="article-footer">
+            <span>6 min read</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+
+      <a href="404.html" class="article-card item-benefits">
+        <div class="article-img-wrap">
+          <div class="article-bg" style="background-image:url('../assets/B8.webp');"></div>
+          <div class="article-tag">Analytics</div>
+        </div>
+        <div class="article-content">
+          <span class="article-date">Jul 30, 2026</span>
+          <h3 class="article-title">The Real Cost of a Bad Hire in 2026</h3>
+          <div class="article-footer">
+            <span>8 min read</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ POPULAR TOPICS ============ -->
+<section class="popular-topics-section">
+  <div class="topics-container">
+    <div class="topics-header">
+      <span class="badge-text glass-badge-dark eyebrow">Categories</span>
+      <h2 class="section-title">Popular topics</h2>
+    </div>
+
+    <div class="topics-grid">
+      <a href="404.html" class="topic-card">
+        <div class="topic-bg-img" style="background-image:url('../assets/B9.webp');"></div>
+        <div class="topic-content">
+          <div class="topic-icon-wrap"><i class="fa-solid fa-money-check-dollar"></i></div>
+          <span class="topic-label">Payroll</span>
+        </div>
+      </a>
+      <a href="404.html" class="topic-card">
+        <div class="topic-bg-img" style="background-image:url('../assets/B10.webp');"></div>
+        <div class="topic-content">
+          <div class="topic-icon-wrap"><i class="fa-solid fa-user-plus"></i></div>
+          <span class="topic-label">Recruiting</span>
+        </div>
+      </a>
+      <a href="404.html" class="topic-card">
+        <div class="topic-bg-img" style="background-image:url('../assets/B11.webp');"></div>
+        <div class="topic-content">
+          <div class="topic-icon-wrap"><i class="fa-solid fa-heart-pulse"></i></div>
+          <span class="topic-label">Benefits</span>
+        </div>
+      </a>
+      <a href="404.html" class="topic-card">
+        <div class="topic-bg-img" style="background-image:url('../assets/B12.webp');"></div>
+        <div class="topic-content">
+          <div class="topic-icon-wrap"><i class="fa-solid fa-scale-balanced"></i></div>
+          <span class="topic-label">Compliance</span>
+        </div>
+      </a>
+      <a href="404.html" class="topic-card">
+        <div class="topic-bg-img" style="background-image:url('../assets/B13.webp');"></div>
+        <div class="topic-content">
+          <div class="topic-icon-wrap"><i class="fa-solid fa-people-group"></i></div>
+          <span class="topic-label">Culture</span>
+        </div>
+      </a>
+      <a href="404.html" class="topic-card">
+        <div class="topic-bg-img" style="background-image:url('../assets/B14.webp');"></div>
+        <div class="topic-content">
+          <div class="topic-icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
+          <span class="topic-label">Performance</span>
+        </div>
+      </a>
+      <a href="404.html" class="topic-card">
+        <div class="topic-bg-img" style="background-image:url('../assets/B15.webp');"></div>
+        <div class="topic-content">
+          <div class="topic-icon-wrap"><i class="fa-solid fa-chart-pie"></i></div>
+          <span class="topic-label">Analytics</span>
+        </div>
+      </a>
+      <a href="404.html" class="topic-card">
+        <div class="topic-bg-img" style="background-image:url('../assets/B16.webp');"></div>
+        <div class="topic-content">
+          <div class="topic-icon-wrap"><i class="fa-solid fa-house-laptop"></i></div>
+          <span class="topic-label">Remote Work</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRENDING ACCORDION ============ -->
+<section class="trending-accordion-section">
+  <div class="trending-container">
+    <div class="trending-header">
+      <span class="badge-text eyebrow">Where We're Writing About</span>
+      <h2 class="section-title trending-title">Trending focus areas</h2>
+    </div>
+
+    <div class="accordion-gallery">
+      <div class="accordion-panel">
+        <div class="panel-bg" style="background-image:url('../assets/B17.webp');"></div>
+        <div class="panel-overlay"></div>
+        <div class="panel-title-collapsed">Compliance</div>
+        <div class="panel-content-expanded">
+          <h3 class="expanded-name">Compliance</h3>
+          <p class="expanded-desc">Multi-state filings, pay transparency and audit-ready records.</p>
+          <a href="404.html" class="btn-panel-action">Explore stories <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="accordion-panel">
+        <div class="panel-bg" style="background-image:url('../assets/B18.webp');"></div>
+        <div class="panel-overlay"></div>
+        <div class="panel-title-collapsed">Talent</div>
+        <div class="panel-content-expanded">
+          <h3 class="expanded-name">Talent</h3>
+          <p class="expanded-desc">Sourcing, screening and offers that close, faster.</p>
+          <a href="404.html" class="btn-panel-action">Explore stories <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="accordion-panel">
+        <div class="panel-bg" style="background-image:url('../assets/B19.webp');"></div>
+        <div class="panel-overlay"></div>
+        <div class="panel-title-collapsed">Benefits</div>
+        <div class="panel-content-expanded">
+          <h3 class="expanded-name">Benefits</h3>
+          <p class="expanded-desc">Plan design and enrollment your team will actually read.</p>
+          <a href="404.html" class="btn-panel-action">Explore stories <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="accordion-panel">
+        <div class="panel-bg" style="background-image:url('../assets/B20.webp');"></div>
+        <div class="panel-overlay"></div>
+        <div class="panel-title-collapsed">Culture</div>
+        <div class="panel-content-expanded">
+          <h3 class="expanded-name">Culture</h3>
+          <p class="expanded-desc">Rituals, surveys and programs that keep people around.</p>
+          <a href="404.html" class="btn-panel-action">Explore stories <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="accordion-panel">
+        <div class="panel-bg" style="background-image:url('../assets/B21.webp');"></div>
+        <div class="panel-overlay"></div>
+        <div class="panel-title-collapsed">Analytics</div>
+        <div class="panel-content-expanded">
+          <h3 class="expanded-name">Analytics</h3>
+          <p class="expanded-desc">Headcount, attrition and reporting your board will trust.</p>
+          <a href="404.html" class="btn-panel-action">Explore stories <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ESSENTIALS / TIPS ============ -->
+<section class="essentials-section">
+  <div class="essentials-container">
+    <div class="essentials-header">
+      <span class="badge-text eyebrow">Essentials</span>
+      <h2 class="section-title">HR tips & guides</h2>
+    </div>
+
+    <div class="tips-grid">
+      <a href="404.html" class="tip-card">
+        <div class="tip-icon-wrap"><i class="fa-solid fa-clipboard-check"></i></div>
+        <div class="tip-content">
+          <h4 class="tip-title">Onboarding Checklist</h4>
+          <span class="tip-link">Read the full guide &rarr;</span>
+        </div>
+      </a>
+      <a href="404.html" class="tip-card">
+        <div class="tip-icon-wrap"><i class="fa-regular fa-file-lines"></i></div>
+        <div class="tip-content">
+          <h4 class="tip-title">Compliance Guide</h4>
+          <span class="tip-link">Read the full guide &rarr;</span>
+        </div>
+      </a>
+      <a href="404.html" class="tip-card">
+        <div class="tip-icon-wrap"><i class="fa-solid fa-comments"></i></div>
+        <div class="tip-content">
+          <h4 class="tip-title">Interview Kit</h4>
+          <span class="tip-link">Read the full guide &rarr;</span>
+        </div>
+      </a>
+      <a href="404.html" class="tip-card">
+        <div class="tip-icon-wrap"><i class="fa-solid fa-heart-pulse"></i></div>
+        <div class="tip-content">
+          <h4 class="tip-title">Benefits Explainer</h4>
+          <span class="tip-link">Read the full guide &rarr;</span>
+        </div>
+      </a>
+      <a href="404.html" class="tip-card">
+        <div class="tip-icon-wrap"><i class="fa-solid fa-piggy-bank"></i></div>
+        <div class="tip-content">
+          <h4 class="tip-title">Compensation Planning</h4>
+          <span class="tip-link">Read the full guide &rarr;</span>
+        </div>
+      </a>
+      <a href="404.html" class="tip-card">
+        <div class="tip-icon-wrap"><i class="fa-solid fa-book"></i></div>
+        <div class="tip-content">
+          <h4 class="tip-title">Employee Handbook</h4>
+          <span class="tip-link">Read the full guide &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="newsletter-section">
+  <div class="newsletter-container">
+    <div class="newsletter-header">
+      <span class="badge-text glass-badge-dark eyebrow">Newsletter</span>
+      <h2 class="section-title">Join The HR Briefing</h2>
+      <p class="newsletter-desc">One thoughtful email a week — compliance changes, hiring benchmarks and culture ideas.</p>
+    </div>
+
+    <form id="newsletterForm" class="blog-newsletter-form" novalidate>
+      <div class="input-wrapper">
+        <input type="email" id="emailInput" placeholder="Enter your email" required autocomplete="off">
+        <button type="submit" class="btn-subscribe">Subscribe</button>
+      </div>
+      <div id="formMessage" class="form-message"></div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER (shared) ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <img src="../assets/Logo.webp" alt="" class="brand-logo">
+          
+        </a>
+        <p>A full-service human resources partner for growing companies — payroll, recruiting, benefits and culture, handled end to end.</p>
+        <div class="footer-social">
+          <a href="404.html" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9h3v11H4zM5.5 4a1.8 1.8 0 100 3.6A1.8 1.8 0 005.5 4zM10 9h3v1.6c.6-1 1.7-1.8 3.3-1.8 2.5 0 4.2 1.6 4.2 4.9V20h-3v-5.7c0-1.6-.6-2.6-2-2.6-1.1 0-1.8.8-2.1 1.5-.1.3-.1.6-.1 1V20h-3V9z" fill="currentColor"/></svg></a>
+          <a href="404.html" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+          <a href="404.html" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="7" r="1" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="404.html">Payroll & Compliance</a></li>
+          <li><a href="404.html">Talent Acquisition</a></li>
+          <li><a href="404.html">Benefits</a></li>
+          <li><a href="404.html">HR Analytics</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="404.html">Help Center</a></li>
+          <li><a href="404.html">FAQs</a></li>
+          <li><a href="404.html">Compliance Library</a></li>
+          <li><a href="404.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Get Started</h5>
+        <ul>
+          <li><a href="404.html">Book a Consultation</a></li>
+          <li><a href="404.html">Client Portal</a></li>
+          <li><a href="404.html">HR Briefing</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Stackly HR Solutions. Built for people-first teams.</span>
+      <div class="footer-bottom-links">
+        <a href="404.html">Privacy Policy</a>
+        <a href="404.html">Terms of Service</a>
+        <a href="404.html">Security</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../js/site-nav.js"></script>
+<script src="../js/index.js"></script>
+<script src="../js/blog.js"></script>
+<script src="../js/blog-fixes.js"></script>
+</body>
+</html>

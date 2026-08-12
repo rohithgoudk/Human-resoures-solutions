@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Stackly — Human Resources Solutions</title>
+<meta name="description" content="Sign in to your Stackly account to manage payroll, hiring, benefits and performance — all in one place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/login.css">
+</head>
+<body class="hero-page auth-page">
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="../assets/Logo.webp" alt="" class="brand-logo">
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-cta">
+      <a href="login.html" class="btn btn-line btn-login active" aria-current="page">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.7"/><path d="M5 20c1.3-3.6 4-5.4 7-5.4s5.7 1.8 7 5.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        Login
+      </a>
+      <a href="signup.html" class="btn btn-brass btn-signup">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="10" cy="8" r="3.4" stroke="currentColor" stroke-width="1.7"/><path d="M3 20c1.2-3.4 3.7-5.1 7-5.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M18 8v6M15 11h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        Sign Up
+      </a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MOBILE NAV ============ -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+  <div class="mobile-nav-ctas">
+    <a href="login.html" class="btn btn-line-ink active" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.7"/><path d="M5 20c1.3-3.6 4-5.4 7-5.4s5.7 1.8 7 5.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      Login
+    </a>
+    <a href="signup.html" class="btn btn-brass">
+      <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><circle cx="10" cy="8" r="3.4" stroke="currentColor" stroke-width="1.7"/><path d="M3 20c1.2-3.4 3.7-5.1 7-5.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M18 8v6M15 11h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      Sign Up
+    </a>
+  </div>
+  <div class="mobile-nav-foot">
+    <span>stackly@info.com</span>
+    <span>+161 45674567</span>
+  </div>
+</nav>
+<div class="mobile-nav-scrim" id="mobileNavScrim"></div>
+
+<!-- ============ AUTH HERO / FORM ============ -->
+<section class="auth-section">
+  <div class="auth-bg" style="background-image:url('https://images.unsplash.com/photo-1758874384555-37d50c0ee81a?auto=format&fit=crop&w=1800&q=80');"></div>
+  <div class="auth-overlay"></div>
+
+  <svg class="auth-network" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice">
+    <g stroke="#C0923F" stroke-width="1" opacity="0.35">
+      <line x1="120" y1="120" x2="220" y2="200"/>
+      <line x1="220" y1="200" x2="180" y2="320"/>
+      <line x1="220" y1="200" x2="300" y2="280"/>
+      <line x1="180" y1="320" x2="260" y2="420"/>
+      <line x1="120" y1="120" x2="40" y2="180"/>
+    </g>
+    <g fill="#C0923F" opacity="0.55">
+      <circle cx="120" cy="120" r="4"/>
+      <circle cx="220" cy="200" r="5"/>
+      <circle cx="180" cy="320" r="4"/>
+      <circle cx="300" cy="280" r="3.5"/>
+      <circle cx="260" cy="420" r="4"/>
+      <circle cx="40" cy="180" r="3.5"/>
+    </g>
+  </svg>
+
+  <div class="wrap auth-inner">
+
+    <div class="auth-text-content on-ink">
+      <span class="eyebrow auth-anim">People Operations · Client Access</span>
+      <h1 class="auth-anim">Welcome back<br>to your<br><em>people plan.</em></h1>
+      <p class="auth-desc auth-anim">Sign in to review payroll runs, track open roles, manage benefits enrollment and reach your dedicated HR lead — all from one dashboard.</p>
+
+      <div class="auth-stats auth-anim">
+        <span class="stat-pill">500+ companies</span>
+        <span class="stat-pill">40+ countries</span>
+        <span class="stat-pill">98% satisfaction</span>
+      </div>
+    </div>
+
+    <div class="auth-form-glass auth-anim">
+      <div class="form-head">
+        <span class="eyebrow">Client Portal</span>
+        <h2>Sign in</h2>
+      </div>
+
+      <form id="loginForm" novalidate>
+
+        <div class="input-group">
+          <label for="email"><i class="ic-mail"></i> Email</label>
+          <input type="email" id="email" placeholder="you@company.com" autocomplete="email" required>
+        </div>
+
+        <div class="input-group">
+          <label for="password"><i class="ic-lock"></i> Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" placeholder="At least 8 characters" autocomplete="current-password" required>
+            <button type="button" class="btn-toggle-pass" aria-label="Show password">
+              <svg class="eye-open" viewBox="0 0 24 24" fill="none"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>
+              <svg class="eye-closed" viewBox="0 0 24 24" fill="none" style="display:none"><path d="M3 3l18 18M10.6 10.7a3 3 0 004.1 4.1M6.6 6.7C4.2 8.3 2 12 2 12s3.6 7 10 7c1.7 0 3.1-.5 4.4-1.2M9.9 5.2C10.6 5.1 11.3 5 12 5c6.4 0 10 7 10 7-.5.9-1.3 2-2.3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="role"><i class="ic-tag"></i> Sign in as</label>
+          <div class="select-wrapper">
+            <select id="role" required>
+              <option value="" disabled selected>Select your role</option>
+              <option value="employee">Employee</option>
+              <option value="admin">HR Admin</option>
+              
+            </select>
+            <svg class="select-icon" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label class="remember">
+            <input type="checkbox" id="remember">
+            <span>Keep me signed in</span>
+          </label>
+          <a href="404.html" class="forgot-pass-link">Forgot password?</a>
+        </div>
+
+        <div id="formError" class="form-error-msg" role="alert"></div>
+
+        <button type="submit" class="btn btn-brass btn-submit-auth">
+          <span class="btn-label">Sign In</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <p class="auth-switch">New to Stackly? <a href="signup.html">Create an account</a></p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP (scroll reveal) ============ -->
+<section class="section-tight trust-strip">
+  <div class="wrap">
+    <p class="reveal trust-strip-label">Your data, handled the way we'd want ours handled</p>
+    <div class="trust-strip-grid">
+      <div class="trust-item reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.6-3 7.8-7 9-4-1.2-7-4.4-7-9V6l7-3z" stroke="currentColor" stroke-width="1.7"/></svg></div>
+        <h4>Encrypted end to end</h4>
+        <p>Every payroll record and document is encrypted in transit and at rest.</p>
+      </div>
+      <div class="trust-item reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>SOC 2 aligned</h4>
+        <p>Independently reviewed controls across access, audit and change management.</p>
+      </div>
+      <div class="trust-item reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="1.6" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 018 0v3" stroke="currentColor" stroke-width="1.7"/></svg></div>
+        <h4>Role-based access</h4>
+        <p>Employees, admins and owners each see exactly what they need — nothing more.</p>
+      </div>
+      <div class="trust-item reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.7"/><path d="M5 20c1.3-3.6 4-5.4 7-5.4s5.7 1.8 7 5.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+        <h4>A real support line</h4>
+        <p>Your dedicated HR lead is a message away, not a ticket queue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <img src="../assets/Logo.webp" alt="" class="brand-logo">
+        </a>
+        <p>A full-service human resources partner for growing companies — payroll, recruiting, benefits and culture, handled end to end.</p>
+        <div class="footer-social">
+          <a href="404.html" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9h3v11H4zM5.5 4a1.8 1.8 0 100 3.6A1.8 1.8 0 005.5 4zM10 9h3v1.6c.6-1 1.7-1.8 3.3-1.8 2.5 0 4.2 1.6 4.2 4.9V20h-3v-5.7c0-1.6-.6-2.6-2-2.6-1.1 0-1.8.8-2.1 1.5-.1.3-.1.6-.1 1V20h-3V9z" fill="currentColor"/></svg></a>
+          <a href="404.html" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+          <a href="404.html" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="7" r="1" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="404.html">Payroll & Compliance</a></li>
+          <li><a href="404.html">Talent Acquisition</a></li>
+          <li><a href="404.html">Benefits</a></li>
+          <li><a href="404.html">HR Analytics</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="404.html">Help Center</a></li>
+          <li><a href="404.html">FAQs</a></li>
+          <li><a href="404.html">Compliance Library</a></li>
+          <li><a href="404.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Get Started</h5>
+        <ul>
+          <li><a href="404.html">Book a Consultation</a></li>
+          <li><a href="404.html">Client Portal</a></li>
+          <li><a href="404.html">HR Briefing</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Stackly HR Solutions. Built for people-first teams.</span>
+      <div class="footer-bottom-links">
+        <a href="404.html">Privacy Policy</a>
+        <a href="404.html">Terms of Service</a>
+        <a href="404.html">Security</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../js/login.js"></script>
+</body>
+</html>
