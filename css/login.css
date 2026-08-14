@@ -400,6 +400,21 @@ em { font-style: italic; color: var(--brass); }
 
 .password-wrapper { position: relative; }
 .password-wrapper input { padding-right: 46px; }
+
+/* Fix: once the password field has a value, Edge/IE inject their own
+   built-in "reveal password" (and "clear") icon inside the input, in
+   the same top-right corner as our custom eye button. That native
+   icon stacking on top of ours is exactly what produced the "two
+   eyes" bug — it only ever appeared while the field had text, never
+   on an empty field. These pseudo-elements switch it off so only our
+   custom toggle is ever shown, on every browser. */
+.password-wrapper input::-ms-reveal,
+.password-wrapper input::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 .btn-toggle-pass {
   position: absolute;
   right: 6px; top: 50%;
@@ -416,7 +431,8 @@ em { font-style: italic; color: var(--brass); }
 
 /* Password visibility toggle — driven purely by the .is-visible class,
    so there's no inline-style/JS race condition and it can never show
-   (or hide) both eye icons at once. */
+   (or hide) both eye icons at once. (login.js additionally sets these
+   inline on every toggle as a second safety net.) */
 .btn-toggle-pass .eye-open { display: flex; }
 .btn-toggle-pass .eye-closed { display: none; }
 .btn-toggle-pass.is-visible .eye-open { display: none; }

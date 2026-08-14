@@ -92,19 +92,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------------------------------------------------
      Password visibility toggle
-     Fix: driven entirely by the .is-visible class (see
-     login.css) instead of two separate inline styles, so
-     the open/closed eye can never get out of sync or both
-     end up showing at once.
+     Fix: previously this relied ONLY on the .is-visible
+     class + CSS (.eye-open / .eye-closed display rules)
+     to decide which icon shows. If any other stylesheet
+     on the site declares a competing `svg` display rule
+     with equal-or-higher specificity, it can win the
+     cascade and both icons render at once ("dual eye"
+     bug).
+     Now the JS sets each icon's display directly via
+     inline style on every toggle (and once on load).
+     Inline styles always beat external stylesheet rules
+     (short of !important), so exactly one icon can ever
+     be visible, regardless of any other CSS on the page.
+     The .is-visible class is kept too, purely so any
+     :hover / theming CSS keyed off it still works.
   --------------------------------------------------- */
   const toggleBtn = document.querySelector('.btn-toggle-pass');
   const passwordInput = document.getElementById('password');
+  const eyeOpenIcon = toggleBtn.querySelector('.eye-open');
+  const eyeClosedIcon = toggleBtn.querySelector('.eye-closed');
+
+  const setPasswordVisibility = (show) => {
+    passwordInput.setAttribute('type', show ? 'text' : 'password');
+    toggleBtn.classList.toggle('is-visible', show);
+    eyeOpenIcon.style.display = show ? 'none' : 'flex';
+    eyeClosedIcon.style.display = show ? 'flex' : 'none';
+    toggleBtn.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+  };
+
+  // Lock in the correct starting state as soon as the page loads,
+  // instead of trusting CSS defaults alone.
+  setPasswordVisibility(false);
 
   toggleBtn.addEventListener('click', () => {
     const willShow = passwordInput.getAttribute('type') !== 'text';
-    passwordInput.setAttribute('type', willShow ? 'text' : 'password');
-    toggleBtn.classList.toggle('is-visible', willShow);
-    toggleBtn.setAttribute('aria-label', willShow ? 'Hide password' : 'Show password');
+    setPasswordVisibility(willShow);
   });
 
   /* ---------------------------------------------------
