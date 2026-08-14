@@ -177,28 +177,38 @@
    @media (max-width:900px){ .topics-grid{ grid-template-columns:repeat(2, 1fr); } }
    @media (max-width:480px){ .topics-grid{ grid-template-columns:1fr; } }
    
+   /* FIX: label/icon no longer overlaid on the photo.
+      Card is now a simple column: photo on top, content strip
+      below it with its own background, like the article cards. */
    .topic-card{
-     position:relative; height:150px; border-radius:var(--radius-m); overflow:hidden;
-     display:flex; align-items:flex-end;
+     display:flex; flex-direction:column;
+     border-radius:var(--radius-m); overflow:hidden;
+     border:1px solid var(--paper-line); background:var(--white);
+     transition:transform .3s var(--ease), box-shadow .3s var(--ease);
    }
+   .topic-card:hover{ transform:translateY(-4px); box-shadow:0 18px 36px -20px rgba(18,35,31,0.24); }
+   
    .topic-bg-img{
-     position:absolute; inset:0; background-size:cover; background-position:center;
+     position:relative; height:150px;
+     background-size:cover; background-position:center;
      filter:saturate(0.9);
      transition:transform .5s var(--ease);
    }
-   .topic-card:hover .topic-bg-img{ transform:scale(1.08); }
-   .topic-card::before{
-     content:''; position:absolute; inset:0;
-     background:linear-gradient(0deg, rgba(18,35,31,0.82) 0%, rgba(18,35,31,0.35) 100%);
+   .topic-card:hover .topic-bg-img{ transform:scale(1.06); }
+   
+   /* content now sits BELOW the image, not on top of it —
+      no more absolute positioning, no more dark gradient overlay */
+   .topic-content{
+     display:flex; align-items:center; gap:12px;
+     padding:16px 18px;
    }
-   .topic-content{ position:relative; z-index:2; padding:18px; display:flex; flex-direction:column; gap:8px; }
    .topic-icon-wrap{
-     width:34px; height:34px; border-radius:10px;
-     background:rgba(241,239,228,0.16); border:1px solid rgba(241,239,228,0.3);
+     width:34px; height:34px; border-radius:10px; flex-shrink:0;
+     background:var(--sage-tint); border:1px solid var(--paper-line);
      display:flex; align-items:center; justify-content:center;
-     color:var(--brass); font-size:14px;
+     color:var(--brass-dark); font-size:14px;
    }
-   .topic-label{ color:var(--paper); font-weight:600; font-size:14.5px; }
+   .topic-label{ color:var(--text); font-weight:600; font-size:14.5px; }
    
    /* ---------- Trending accordion ---------- */
    .trending-accordion-section{ padding:96px 32px; }

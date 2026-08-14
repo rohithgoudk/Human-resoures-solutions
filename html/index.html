@@ -108,7 +108,7 @@
       </div>
     </div>
 
-    <form class="quickstart" data-demo-form aria-label="Get matched with an HR plan">
+    <form class="quickstart" data-demo-form data-redirect="404.html" aria-label="Get matched with an HR plan">
       <div class="qs-field">
         <label for="qs-size">Company size</label>
         <select id="qs-size">
@@ -240,7 +240,9 @@
 
     <div class="programs">
       <article class="program-card reveal">
-        <img src="../assets/i11.webp" alt="Executive being interviewed for a leadership role">
+        <div class="program-media">
+          <img src="../assets/i11.webp" alt="Executive being interviewed for a leadership role">
+        </div>
         <div class="program-inner">
           <span class="eyebrow">Leadership</span>
           <h3>Executive Search</h3>
@@ -249,7 +251,9 @@
         </div>
       </article>
       <article class="program-card reveal">
-        <img src="../assets/i12.webp" alt="Modern office building representing global operations">
+        <div class="program-media">
+          <img src="../assets/i12.webp" alt="Modern office building representing global operations">
+        </div>
         <div class="program-inner">
           <span class="eyebrow">Global Mobility</span>
           <h3>Global Payroll & Relocation</h3>
@@ -258,7 +262,9 @@
         </div>
       </article>
       <article class="program-card reveal">
-        <img src="../assets/i13.webp" alt="Team celebrating together at an office culture event">
+        <div class="program-media">
+          <img src="../assets/i13.webp" alt="Team celebrating together at an office culture event">
+        </div>
         <div class="program-inner">
           <span class="eyebrow">Culture</span>
           <h3>Culture & Engagement Design</h3>
@@ -362,9 +368,9 @@
   <div class="wrap">
     <div class="eyebrow reveal" style="margin-bottom:40px;">Client Stories</div>
     <div class="testimonial reveal" data-testimonials='[
-        {"quote":"Bellwether rebuilt our entire onboarding experience in six weeks. New hires now hit their first milestone twice as fast, and our managers finally trust the process.","name":"Sarah Chen","role":"VP People, Northlight Robotics","photo":"https://images.unsplash.com/photo-1758518727888-ffa196002e59?auto=format&fit=crop&w=400&q=80"},
-        {"quote":"We went from three spreadsheets and a prayer to a payroll system that runs itself across five states. It is the calmest our finance team has ever felt in Q4.","name":"Marcus Odom","role":"COO, Fieldstone Health","photo":"https://images.unsplash.com/photo-1758518730384-be3d205838e8?auto=format&fit=crop&w=400&q=80"},
-        {"quote":"Their recruiters found us a VP of Engineering in five weeks after two agencies failed for six months. They actually understood what we needed, not just the job title.","name":"Priya Raman","role":"Founder, Tidewater Systems","photo":"https://images.unsplash.com/photo-1758873269276-9518d0cb4a0b?auto=format&fit=crop&w=400&q=80"}
+        {"quote":"Bellwether rebuilt our entire onboarding experience in six weeks. New hires now hit their first milestone twice as fast, and our managers finally trust the process.","name":"Sarah Chen","role":"VP People, Northlight Robotics","photo":"../assets/i30.webp"},
+        {"quote":"We went from three spreadsheets and a prayer to a payroll system that runs itself across five states. It is the calmest our finance team has ever felt in Q4.","name":"Marcus Odom","role":"COO, Fieldstone Health","photo":"../assets/i31.webp"},
+        {"quote":"Their recruiters found us a VP of Engineering in five weeks after two agencies failed for six months. They actually understood what we needed, not just the job title.","name":"Priya Raman","role":"Founder, Tidewater Systems","photo":"../assets/i33.webp"}
       ]'>
       <div class="testi-photo"><img src="../assets/i15.webp" alt="Client portrait"></div>
       <div>
@@ -428,7 +434,7 @@
         <h2>Get the playbook before your competitors do</h2>
         <p>Weekly insights on compliance changes, hiring benchmarks and culture ideas — no fluff, straight to your inbox.</p>
       </div>
-      <form class="newsletter-form" data-demo-form>
+      <form class="newsletter-form" data-demo-form data-redirect="404.html">
         <input type="email" placeholder="you@company.com" required aria-label="Email address">
         <button type="submit" class="btn btn-brass">Subscribe</button>
       </form>

@@ -127,10 +127,16 @@
       }
     }
   
-    /* ---- Demo form submit (prevents navigation, no backend wired up) ---- */
+    /* ---- Demo form submit ----
+       Forms marked [data-demo-form] have no real backend yet, so on a
+       valid submit (native "required" validation still applies — e.g. the
+       newsletter email field) we send the visitor to the placeholder
+       404 page named on data-redirect, instead of silently doing nothing. */
     document.querySelectorAll('[data-demo-form]').forEach(function (form) {
       form.addEventListener('submit', function (e) {
         e.preventDefault();
+        var dest = form.getAttribute('data-redirect') || '404.html';
+        window.location.href = dest;
       });
     });
   })();

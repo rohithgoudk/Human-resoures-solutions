@@ -102,46 +102,67 @@
   </svg>
 
   <div class="wrap hero-inner">
-    <div class="split-layout">
-      <div class="hero-top on-ink" style="max-width:600px;">
-        <span class="eyebrow">Core Solutions</span>
-        <h1>Built for how HR<br>actually <em>works.</em></h1>
-        <p class="hero-sub">Payroll, recruiting, benefits, performance and compliance — pick a single function or hand off the whole people-ops stack.</p>
-      </div>
+    <div class="hero-top on-ink hero-top-centered">
+      <span class="eyebrow">Core Solutions</span>
+      <h1>Built for how HR<br>actually <em>works.</em></h1>
+      <p class="hero-sub">Payroll, recruiting, benefits, performance and compliance — pick a single function or hand off the whole people-ops stack.</p>
+    </div>
+  </div>
+</section>
 
-      <div class="services-search-wrapper">
-        <form class="services-search-card" id="servicesSearchForm" novalidate>
-          <h3 class="search-widget-title">Find your solution</h3>
+<!-- ============ SEARCH WIDGET — its own slide, separate from the hero ============ -->
+<section class="services-search-section">
+  <div class="wrap">
+    <div class="services-search-wrapper">
+      <form class="services-search-card" id="servicesSearchForm" novalidate>
+        <h3 class="search-widget-title">Find your solution</h3>
 
-          <div class="search-input-group">
-            <label for="teamSizeInput">Team size</label>
-            <select id="teamSizeInput" required>
-              <option value="">Select team size</option>
-              <option>1–20 employees</option>
-              <option>21–100 employees</option>
-              <option>101–500 employees</option>
-              <option>500+ employees</option>
-            </select>
-            <span class="error-message" id="teamSizeError"></span>
-          </div>
+        <div class="search-input-group">
+          <label for="teamSizeInput">Team size</label>
+          <select id="teamSizeInput" required>
+            <option value="">Select team size</option>
+            <option>1–20 employees</option>
+            <option>21–100 employees</option>
+            <option>101–500 employees</option>
+            <option>500+ employees</option>
+          </select>
+          <span class="error-message" id="teamSizeError"></span>
+        </div>
 
-          <div class="search-input-group">
-            <label for="focusInput">What do you need help with</label>
-            <input type="text" id="focusInput" placeholder="Payroll, hiring, benefits…" required>
-            <span class="error-message" id="focusError"></span>
-          </div>
+        <div class="search-input-group">
+          <label for="focusInput">What do you need help with</label>
+          <select id="focusInput" required>
+            <option value="">Select a focus area</option>
+            <option>Payroll</option>
+            <option>Recruiting</option>
+            <option>Benefits</option>
+            <option>Performance</option>
+            <option>Onboarding</option>
+            <option>Analytics</option>
+            <option>Compliance</option>
+            <option>Culture</option>
+          </select>
+          <span class="error-message" id="focusError"></span>
+        </div>
 
-          <div class="search-input-group">
-            <label for="priorityInput">Top priority</label>
-            <input type="text" id="priorityInput" placeholder="Speed, cost, compliance…" required>
-            <span class="error-message" id="priorityError"></span>
-          </div>
+        <div class="search-input-group">
+          <label for="priorityInput">Top priority</label>
+          <select id="priorityInput" required>
+            <option value="">Select your top priority</option>
+            <option>Speed</option>
+            <option>Cost</option>
+            <option>Compliance</option>
+            <option>Quality</option>
+            <option>Support</option>
+            <option>Flexibility</option>
+          </select>
+          <span class="error-message" id="priorityError"></span>
+        </div>
 
-          <button type="submit" class="search-submit-btn-full" id="servicesSearchBtn">
-            Search Solutions
-          </button>
-        </form>
-      </div>
+        <button type="submit" class="search-submit-btn-full" id="servicesSearchBtn">
+          Search Solutions
+        </button>
+      </form>
     </div>
   </div>
 </section>
@@ -680,10 +701,8 @@
   </div>
 </section>
 
-<!-- ============ INSIDER LIST — parallax + glass card ============ -->
+<!-- ============ INSIDER LIST — glass card on flat background ============ -->
 <section class="insider-section">
-  <div class="insider-bg" style="background-image:url('../assets/S26.webp');"></div>
-
   <div class="wrap">
     <div class="insider-content">
       <span class="eyebrow">Join The HR Briefing</span>

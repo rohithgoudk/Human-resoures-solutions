@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stackly Partner Console</title>
+  <title>Talently HR Console</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="../css/employee-dashboard.css" />
 </head>
@@ -15,13 +15,13 @@
   <div class="sidebar-overlay" id="sidebar-overlay"></div>
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <div class="brand">
+      <a class="brand-link" href="index.html" aria-label="Talently home">
         <span class="brand-logo-slot">
           <img id="brand-logo-img" src="../assets/Logo.webp" alt="" class="brand-logo-img"
                onerror="this.onerror=null;this.style.display='none';document.getElementById('brand-logo-fallback').style.display='flex';document.getElementById('brand-wordmark').style.display='block';">
           
         </span>
-      </div>
+      </a>
       <button class="close-btn" id="close-sidebar-btn" aria-label="Close sidebar">✕</button>
     </div>
     <div class="sidebar-section-label">Main menu</div>
@@ -50,7 +50,7 @@
       <div class="topbar-right">
         <div class="search-box">
           <span class="search-icon"><i data-lucide="search"></i></span>
-          <input placeholder="Search clients, programs, specialists…">
+          <input placeholder="Search employees, requisitions, teams…">
         </div>
         <button class="icon-btn" id="notif-btn" aria-label="Notifications"><i data-lucide="bell"></i><span class="notif-dot"></span></button>
 

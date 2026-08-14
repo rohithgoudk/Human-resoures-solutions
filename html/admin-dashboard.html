@@ -16,12 +16,15 @@
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
       <div class="brand">
-        <span class="brand-logo-slot">
-          <img id="brand-logo-img" src="../assets/Logo.webp"
-               alt="Stackly Admin Console" class="brand-logo-img"
-               onerror="this.onerror=null;this.style.display='none';document.getElementById('brand-logo-fallback').style.display='flex';document.getElementById('brand-wordmark').style.display='block';">
-          
-        </span>
+        <a href="index.html" class="brand-link" aria-label="Stackly home">
+          <span class="brand-logo-slot">
+            <img id="brand-logo-img" src="../assets/Logo.webp"
+                 alt="Stackly Admin Console" class="brand-logo-img"
+                 onerror="this.onerror=null;this.style.display='none';document.getElementById('brand-logo-fallback').style.display='flex';document.getElementById('brand-wordmark').style.display='block';">
+            <svg id="brand-logo-fallback" class="brand-logo-fallback" viewBox="0 0 32 32" fill="none" style="display:none;"><circle cx="16" cy="16" r="11" stroke="#C0923F" stroke-width="1.6" fill="none"/><circle cx="16" cy="16" r="3.5" fill="#C0923F"/></svg>
+            <span id="brand-wordmark" class="brand-wordmark" style="display:none;">STACKLY<em>.</em></span>
+          </span>
+        </a>
         <span class="admin-pill">Admin</span>
       </div>
       <button class="close-btn" id="close-sidebar-btn" aria-label="Close sidebar">✕</button>

@@ -60,6 +60,7 @@ body {
   margin-bottom: 22px; padding: 0 4px;
 }
 .brand { display: flex; align-items: center; gap: 10px; min-width: 0; flex-wrap: wrap; }
+.brand-link { display: flex; align-items: center; text-decoration: none; cursor: pointer; }
 .brand-logo-slot { height: 34px; display: flex; align-items: center; gap:9px; flex-shrink: 0; }
 .brand-logo-img { height: 30px; width: auto; max-width: 150px; object-fit: contain; display: block; }
 .brand-logo-fallback {
@@ -343,14 +344,6 @@ body {
 .toggle-switch { width: 42px; height: 24px; border-radius: 999px; cursor: pointer; position: relative; flex-shrink: 0; transition: background .3s ease; }
 .toggle-knob { position: absolute; top: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.3); transition: left .3s var(--ease); }
 select.pref-select { background: var(--surface-2); border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 7px 12px; font-size: 13px; outline: none; font-family:inherit; }
-
-.fleet-scroll { display:flex; gap:14px; overflow-x:auto; padding-bottom:6px; scroll-snap-type:x mandatory; scrollbar-width:none; }
-.fleet-scroll::-webkit-scrollbar{ display:none; }
-.fleet-img { position:relative; flex:0 0 220px; height:150px; border-radius:12px; overflow:hidden; scroll-snap-align:start; border:1px solid var(--border); }
-.fleet-img img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s var(--ease); }
-.fleet-img:hover img{ transform:scale(1.08); }
-.fleet-cap{ position:absolute; left:0; right:0; bottom:0; padding:10px 12px 9px; background:linear-gradient(180deg, rgba(16,14,10,0) 0%, rgba(16,14,10,0.92) 100%); font-family:var(--mono); font-size:10.5px; letter-spacing:.02em; color:var(--text); }
-.fleet-cap b{ display:block; color:var(--accent-2); font-size:9.5px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:2px; font-weight:700; }
 
 .service-row{ display:flex; align-items:center; gap:14px; padding:14px 6px; border-radius:10px; transition:background .15s ease; }
 .service-row:hover{ background:rgba(255,255,255,0.03); }

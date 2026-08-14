@@ -1,119 +1,112 @@
-const serviceLineAccents = {
-  "Payroll & Compliance": "#C0923F",
-  "Talent Acquisition": "#6E93B0",
-  "Benefits Administration": "#8FAE7C",
-  "Performance Management": "#B98CA3",
-  "Employee Onboarding": "#E3B463",
-  "HR Analytics": "#9AA5B1"
+const officeAccents = {
+  "Bengaluru, IN": "#00C48C",
+  "Pune, IN": "#7CD859",
+  "Hyderabad, IN": "#FFD400",
+  "Chennai, IN": "#4FB6FF",
+  "Mumbai, IN": "#FF8FD8",
+  "Gurugram, IN": "#9AA5B1"
 };
-const teamSnapshot = [
-  { src: "../assets/S9.webp", tag: "Payroll", title: "Payroll Review Session — Northlight Robotics" },
-  { src: "../assets/i8.webp", tag: "Talent", title: "Offer Extended — Tidewater Systems Search" },
-  { src: "../assets/B10.webp", tag: "Benefits", title: "Open Enrollment Walkthrough — Harborview Retail" },
-  { src: "../assets/A5.webp", tag: "Onboarding", title: "Day One — Crestline Manufacturing" },
-  { src: "../assets/S14.webp", tag: "Analytics", title: "Quarterly Reporting Review — Bellcrest Analytics" }
-];
-const clientEngagements = [
-  { id: 1, name: "Northlight Robotics — Onboarding Experience Redesign", facility: "Employee Onboarding", site: "Employee Onboarding", type: "Onboarding Program Build", status: "Active", progress: 72, endDate: "Dec 2025", budget: "$84,000", manager: "Elena Marsh" },
-  { id: 2, name: "Fieldstone Health — Multi-State Payroll Rollout", facility: "Payroll & Compliance", site: "Payroll & Compliance", type: "Payroll Migration", status: "Ramping Up", progress: 38, endDate: "Aug 2025", budget: "$146,000", manager: "Diego Torres" },
-  { id: 3, name: "Tidewater Systems — VP Engineering Executive Search", facility: "Talent Acquisition", site: "Talent Acquisition", type: "Retained Executive Search", status: "Completed", progress: 100, endDate: "Mar 2025", budget: "$58,000", manager: "Amara Osei" },
-  { id: 4, name: "Harborview Retail — Benefits Open Enrollment Redesign", facility: "Benefits Administration", site: "Benefits Administration", type: "Plan Design & Enrollment", status: "Active", progress: 55, endDate: "Nov 2025", budget: "$67,000", manager: "Ben Whitfield" },
-  { id: 5, name: "Crestline Manufacturing — Performance Review Framework", facility: "Performance Management", site: "Performance Management", type: "Review Cycle Redesign", status: "Review", progress: 89, endDate: "Jul 2025", budget: "$92,000", manager: "Noah Kessler" },
-  { id: 6, name: "Bellcrest Analytics — Attrition & Headcount Dashboard", facility: "HR Analytics", site: "HR Analytics", type: "Reporting Build-Out", status: "Active", progress: 61, endDate: "Oct 2025", budget: "$54,000", manager: "Lucia Ferreira" },
-  { id: 7, name: "Ashgrove SaaS — Global Payroll Expansion (12 Countries)", facility: "Payroll & Compliance", site: "Payroll & Compliance", type: "Global Payroll & Relocation", status: "Ramping Up", progress: 45, endDate: "Sep 2025", budget: "$210,000", manager: "Diego Torres" },
-  { id: 8, name: "Meridian Hospitality — Manager Coaching Cohort", facility: "Performance Management", site: "Performance Management", type: "Manager Coaching Program", status: "Active", progress: 28, endDate: "Nov 2025", budget: "$39,000", manager: "Noah Kessler" }
+const requisitions = [
+  { id: 1, name: "Senior Backend Engineer — Platform Team", office: "Bengaluru, IN", site: "Bengaluru, IN", type: "Engineering", status: "Interviewing", progress: 72, endDate: "Dec 2025", budget: "₹32L–₹40L", manager: "Ananya Sharma" },
+  { id: 2, name: "Regional Sales Manager — Enterprise Accounts", office: "Mumbai, IN", site: "Mumbai, IN", type: "Sales", status: "Sourcing", progress: 38, endDate: "Aug 2025", budget: "₹24L–₹30L", manager: "Rohan Kapoor" },
+  { id: 3, name: "HR Business Partner — Operations", office: "Hyderabad, IN", site: "Hyderabad, IN", type: "Human Resources", status: "Filled", progress: 100, endDate: "Mar 2025", budget: "₹18L–₹22L", manager: "Priya Nair" },
+  { id: 4, name: "Product Marketing Manager", office: "Chennai, IN", site: "Chennai, IN", type: "Marketing", status: "Interviewing", progress: 55, endDate: "Nov 2025", budget: "₹20L–₹26L", manager: "Divya Menon" },
+  { id: 5, name: "Customer Success Lead — SMB Segment", office: "Gurugram, IN", site: "Gurugram, IN", type: "Customer Support", status: "Offer Stage", progress: 89, endDate: "Jul 2025", budget: "₹16L–₹20L", manager: "Aditya Verma" },
+  { id: 6, name: "Finance Analyst — FP&A", office: "Pune, IN", site: "Pune, IN", type: "Finance", status: "Interviewing", progress: 61, endDate: "Oct 2025", budget: "₹12L–₹15L", manager: "Sneha Joshi" },
+  { id: 7, name: "Data Engineer — Analytics Platform", office: "Bengaluru, IN", site: "Bengaluru, IN", type: "Engineering", status: "Sourcing", progress: 45, endDate: "Sep 2025", budget: "₹22L–₹28L", manager: "Ananya Sharma" },
+  { id: 8, name: "Talent Acquisition Specialist", office: "Mumbai, IN", site: "Mumbai, IN", type: "Human Resources", status: "Interviewing", progress: 28, endDate: "Nov 2025", budget: "₹10L–₹13L", manager: "Rohan Kapoor" }
 ];
 const hrTeam = [
-  { name: "Elena Marsh", role: "Onboarding Lead — Employee Experience", experience: 9, avatar: "EM", status: "active", projects: 2, speciality: "Onboarding Program Design", email: "e.marsh@stackly.com" },
-  { name: "Diego Torres", role: "Payroll & Compliance Lead", experience: 13, avatar: "DT", status: "active", projects: 2, speciality: "Multi-State & Global Payroll", email: "d.torres@stackly.com" },
-  { name: "Amara Osei", role: "Executive Search Partner", experience: 11, avatar: "AO", status: "away", projects: 1, speciality: "Retained Leadership Search", email: "a.osei@stackly.com" },
-  { name: "Ben Whitfield", role: "Benefits Strategist", experience: 8, avatar: "BW", status: "active", projects: 2, speciality: "Plan Design & Carrier Negotiation", email: "b.whitfield@stackly.com" },
-  { name: "Noah Kessler", role: "Performance & Culture Coach", experience: 7, avatar: "NK", status: "active", projects: 2, speciality: "Review Frameworks & Manager Coaching", email: "n.kessler@stackly.com" },
-  { name: "Lucia Ferreira", role: "HR Analytics Lead", experience: 6, avatar: "LF", status: "active", projects: 1, speciality: "Headcount & DEI Reporting", email: "l.ferreira@stackly.com" },
-  { name: "Priya Kapoor", role: "Account Director", experience: 10, avatar: "PK", status: "active", projects: 3, speciality: "Client Strategy & Renewals", email: "p.kapoor@stackly.com" }
+  { name: "Ananya Sharma", role: "Senior Technical Recruiter — Bengaluru, IN", experience: 8, avatar: "AS", status: "active", projects: 2, speciality: "Engineering Hiring", email: "a.sharma@talently.com" },
+  { name: "Rohan Kapoor", role: "Recruiter — Sales & GTM, Mumbai, IN", experience: 6, avatar: "RK", status: "active", projects: 2, speciality: "Sales & GTM Hiring", email: "r.kapoor@talently.com" },
+  { name: "Priya Nair", role: "HR Business Partner — Hyderabad, IN", experience: 11, avatar: "PN", status: "away", projects: 2, speciality: "Employee Relations", email: "p.nair@talently.com" },
+  { name: "Divya Menon", role: "Talent Partner — Marketing, Chennai, IN", experience: 5, avatar: "DM", status: "active", projects: 1, speciality: "Marketing & Brand Hiring", email: "d.menon@talently.com" },
+  { name: "Aditya Verma", role: "Recruiter — Customer Success, Gurugram, IN", experience: 4, avatar: "AV", status: "active", projects: 1, speciality: "CS & Support Hiring", email: "a.verma@talently.com" },
+  { name: "Sneha Joshi", role: "HRBP — Finance & Ops, Pune, IN", experience: 9, avatar: "SJ", status: "active", projects: 1, speciality: "Compensation & Payroll", email: "s.joshi@talently.com" },
+  { name: "Karan Bhatt", role: "Head of Talent Acquisition — Bengaluru, IN", experience: 13, avatar: "KB", status: "active", projects: 2, speciality: "Hiring Strategy & Leadership", email: "k.bhatt@talently.com" }
 ];
-const programCatalog = [
-  { id: "PRG-001", name: "Payroll & Compliance", facility: "Payroll & Compliance", category: "Payroll & Compliance", date: "Jan 2023", stock: "High Demand", status: "Bestseller" },
-  { id: "PRG-002", name: "Talent Acquisition", facility: "Talent Acquisition", category: "Talent Acquisition", date: "Jun 2023", stock: "Steady Demand", status: "Active" },
-  { id: "PRG-003", name: "Benefits Administration", facility: "Benefits Administration", category: "Benefits Administration", date: "Mar 2024", stock: "Limited Capacity", status: "Updated" },
-  { id: "PRG-004", name: "Performance Management", facility: "Performance Management", category: "Performance Management", date: "Sep 2023", stock: "High Demand", status: "Bestseller" },
-  { id: "PRG-005", name: "Employee Onboarding", facility: "Employee Onboarding", category: "Employee Onboarding", date: "Nov 2024", stock: "Steady Demand", status: "Active" },
-  { id: "PRG-006", name: "HR Analytics & Reporting", facility: "HR Analytics", category: "HR Analytics", date: "Feb 2022", stock: "Steady Demand", status: "Active" },
-  { id: "PRG-007", name: "Executive Search", facility: "Talent Acquisition", category: "Signature Program", date: "Dec 2024", stock: "High Demand", status: "Featured" },
-  { id: "PRG-008", name: "Global Payroll & Relocation", facility: "Payroll & Compliance", category: "Signature Program", date: "Jul 2024", stock: "Steady Demand", status: "Active" }
+const employeeDirectory = [
+  { id: "EMP-001", name: "Rahul Verma", office: "Bengaluru, IN", category: "Engineering", date: "Jan 2023", engagement: "Excellent", status: "Top Performer" },
+  { id: "EMP-002", name: "Ishita Rao", office: "Mumbai, IN", category: "Sales", date: "Jun 2023", engagement: "Good", status: "Active" },
+  { id: "EMP-003", name: "Farhan Ali", office: "Hyderabad, IN", category: "Human Resources", date: "Mar 2024", engagement: "Needs Attention", status: "New Hire" },
+  { id: "EMP-004", name: "Neha Kulkarni", office: "Chennai, IN", category: "Marketing", date: "Sep 2023", engagement: "Excellent", status: "Top Performer" },
+  { id: "EMP-005", name: "Vikas Choudhary", office: "Gurugram, IN", category: "Customer Support", date: "Nov 2024", engagement: "Good", status: "Active" },
+  { id: "EMP-006", name: "Meenal Deshpande", office: "Pune, IN", category: "Finance", date: "Feb 2022", engagement: "Good", status: "Active" },
+  { id: "EMP-007", name: "Arjun Reddy", office: "Bengaluru, IN", category: "Engineering", date: "Dec 2024", engagement: "Excellent", status: "Promoted" },
+  { id: "EMP-008", name: "Tanvi Shah", office: "Mumbai, IN", category: "Human Resources", date: "Jul 2024", engagement: "Good", status: "Active" }
 ];
-const hrInsights = [
-  { title: "The Real Cost of a Bad Hire in 2026", authors: "Chen, S.", journal: "Stackly HR Briefing", year: 2026, status: "Published", reads: 128 },
-  { title: "Designing Benefits Packages for Hybrid Teams", authors: "Whitfield, B.", journal: "Stackly HR Briefing", year: 2026, status: "Published", reads: 94 },
-  { title: "A Manager's Field Guide to Difficult Conversations", authors: "Kessler, N.", journal: "Stackly HR Briefing", year: 2026, status: "Published", reads: 156 },
-  { title: "Your Payroll Compliance Checklist for Q1", authors: "Torres, D.", journal: "Stackly HR Briefing", year: 2026, status: "In Review", reads: 0 },
-  { title: "Building an Onboarding Experience People Remember", authors: "Marsh, E.", journal: "Stackly HR Briefing", year: 2026, status: "Published", reads: 210 },
-  { title: "Reading the Room: Engagement Surveys That Work", authors: "Ferreira, L., Kapoor, P.", journal: "Internal Culture Notes", year: 2026, status: "In Draft", reads: 0 }
+const performanceReviews = [
+  { title: "Engineering Org — Q2 2025 Calibration Summary", authors: "Sharma, A. et al.", journal: "Performance Review Cycle", year: 2025, status: "Published", reads: 128 },
+  { title: "Sales Incentive Plan Effectiveness Review", authors: "Kapoor, R., Menon, D.", journal: "Compensation Committee Report", year: 2025, status: "Published", reads: 64 },
+  { title: "Attrition Analysis: Customer Support Team", authors: "Verma, A. et al.", journal: "Internal HR Report", year: 2025, status: "In Review", reads: 0 },
+  { title: "Manager Effectiveness Survey — Annual Findings", authors: "Bhatt, K., Nair, P.", journal: "Leadership Development Report", year: 2024, status: "Published", reads: 210 },
+  { title: "Diversity & Inclusion Progress Report", authors: "Nair, P., Joshi, S.", journal: "People Analytics Bulletin", year: 2024, status: "Published", reads: 305 },
+  { title: "Remote Work Productivity Study — Draft", authors: "Sharma, A. et al.", journal: "Internal HR Report", year: 2025, status: "In Draft", reads: 0 }
 ];
-const scheduleEvents = [
-  { date: "Jun 21", event: "Ashgrove SaaS — global payroll go-live", site: "Payroll & Compliance", type: "urgent" },
-  { date: "Jun 25", event: "Fieldstone Health — multi-state filing audit", site: "Payroll & Compliance", type: "normal" },
-  { date: "Jul 2", event: "Harborview Retail — open enrollment session", site: "Benefits Administration", type: "normal" },
-  { date: "Jul 10", event: "Team debrief: Tidewater Systems executive search final report review", site: "Virtual", type: "meeting" },
-  { date: "Jul 18", event: "Crestline Manufacturing — performance calibration rollout survey", site: "Performance Management", type: "normal" },
-  { date: "Aug 5", event: "Meridian Hospitality — manager coaching cohort final review", site: "Performance Management", type: "normal" },
-  { date: "Aug 14", event: "Annual account directors' summit", site: "Virtual", type: "meeting" },
-  { date: "Sep 1", event: "Bellcrest Analytics — dashboard refresh resumes after migration", site: "HR Analytics", type: "normal" },
-  { date: "Oct 15", event: "Northlight Robotics — Q4 onboarding metrics deadline", site: "Employee Onboarding", type: "urgent" }
+const hrCalendar = [
+  { date: "Jun 21", event: "New hire onboarding — Engineering cohort begins", site: "Bengaluru, IN", type: "urgent" },
+  { date: "Jun 25", event: "Quarterly HRBP review — Hyderabad office", site: "Hyderabad, IN", type: "normal" },
+  { date: "Jul 2", event: "Payroll audit & compliance check", site: "Mumbai, IN", type: "normal" },
+  { date: "Jul 10", event: "Team debrief: Q2 performance calibration final review", site: "Virtual", type: "meeting" },
+  { date: "Jul 18", event: "Sales team engagement survey rollout", site: "Mumbai, IN", type: "normal" },
+  { date: "Aug 5", event: "Customer Support offer stage final review", site: "Gurugram, IN", type: "normal" },
+  { date: "Aug 14", event: "Annual HR leadership summit", site: "Bengaluru, IN", type: "meeting" },
+  { date: "Sep 1", event: "Finance team — returns after restructuring", site: "Pune, IN", type: "normal" },
+  { date: "Oct 15", event: "Engineering headcount plan deadline", site: "Bengaluru, IN", type: "urgent" }
 ];
-const budgetData = [
-  { site: "Ashgrove SaaS — Global Payroll Expansion", allocated: 1180000, spent: 612000, facility: "Payroll & Compliance" },
-  { site: "Fieldstone Health — Multi-State Rollout", allocated: 620000, spent: 398000, facility: "Payroll & Compliance" },
-  { site: "Tidewater Systems — Executive Search", allocated: 58000, spent: 58000, facility: "Talent Acquisition" },
-  { site: "Harborview Retail — Benefits Redesign", allocated: 340000, spent: 201000, facility: "Benefits Administration" },
-  { site: "Meridian Hospitality — Coaching Cohort", allocated: 158000, spent: 91000, facility: "Performance Management" },
-  { site: "Bellcrest Analytics — Dashboard Program", allocated: 220000, spent: 148000, facility: "HR Analytics" },
-  { site: "Northlight Robotics — Onboarding Redesign", allocated: 184000, spent: 132000, facility: "Employee Onboarding" }
+const payrollBudget = [
+  { site: "Engineering Hiring & Payroll", allocated: 20500000, spent: 12840000, office: "Bengaluru, IN" },
+  { site: "Sales Team Compensation Plan", allocated: 18200000, spent: 9080000, office: "Mumbai, IN" },
+  { site: "HR Business Partner Program", allocated: 2750000, spent: 2750000, office: "Hyderabad, IN" },
+  { site: "Marketing Talent Acquisition", allocated: 13900000, spent: 9010000, office: "Chennai, IN" },
+  { site: "Customer Support Upskilling", allocated: 3580000, spent: 2510000, office: "Gurugram, IN" },
+  { site: "Finance & Ops Compensation", allocated: 15200000, spent: 9980000, office: "Pune, IN" },
+  { site: "L&D and Employee Engagement", allocated: 11100000, spent: 5320000, office: "Bengaluru, IN" }
 ];
-const resourceLibrary = [
-  { title: "2026 Payroll Compliance Handbook", type: "Compliance Guide", year: 2026, pages: 148, downloads: 4210 },
-  { title: "Benefits Plan Design Playbook", type: "Guide", year: 2025, pages: 96, downloads: 3120 },
-  { title: "Executive Search Field Guide", type: "Field Guide", year: 2025, pages: 72, downloads: 1860 },
-  { title: "Onboarding Experience Blueprint", type: "Technical Manual", year: 2024, pages: 210, downloads: 5320 },
-  { title: "HR Analytics Starter Kit", type: "Guide", year: 2026, pages: 64, downloads: 2044 }
+const policyLibrary = [
+  { title: "Employee Handbook 2025 Edition", type: "Handbook", year: 2025, pages: 96, downloads: 4210 },
+  { title: "Code of Conduct & Workplace Ethics Policy", type: "Policy Document", year: 2024, pages: 42, downloads: 3890 },
+  { title: "Manager's Guide to Performance Conversations", type: "Guide", year: 2024, pages: 128, downloads: 2670 },
+  { title: "Leave, Benefits & Payroll Reference Guide", type: "Reference Guide", year: 2025, pages: 74, downloads: 5120 },
+  { title: "Diversity, Equity & Inclusion Playbook", type: "Playbook", year: 2023, pages: 156, downloads: 1980 }
 ];
-const liveFeed = [
-  { text: "Ashgrove SaaS global payroll go-live completed across 4 new countries", time: "2h ago", type: "milestone" },
-  { text: "Record client renewal week reported across the account team", time: "4h ago", type: "performance" },
-  { text: "Tidewater Systems executive search closed — final report published", time: "Yesterday", type: "complete" },
-  { text: "Filing delay flagged at Fieldstone Health — compliance team notified", time: "Yesterday", type: "alert" },
-  { text: "New enrollment portal reveals fresh engagement opportunity for Harborview Retail", time: "2d ago", type: "update" },
-  { text: "Q3 renewal targets exceeded across three client accounts", time: "3d ago", type: "milestone" },
-  { text: "New coaching cohort format launched for Meridian Hospitality", time: "4d ago", type: "update" }
+const hrFeed = [
+  { text: "Bengaluru engineering team crossed a 95% offer acceptance rate this quarter", time: "2h ago", type: "milestone" },
+  { text: "Record employee referral submissions across the Mumbai office", time: "4h ago", type: "performance" },
+  { text: "HR Business Partner program rollout completed — final report published", time: "Yesterday", type: "complete" },
+  { text: "Payroll processing delay flagged for the Hyderabad office — resolved", time: "Yesterday", type: "alert" },
+  { text: "New wellness benefits package unlocks fresh engagement opportunity for the Gurugram team", time: "2d ago", type: "update" },
+  { text: "Q3 hiring targets exceeded across three departments", time: "3d ago", type: "milestone" },
+  { text: "New onboarding checklist launched across the Chennai marketing team", time: "4d ago", type: "update" }
 ];
 const navIcons = {
-  dashboard: "layout-dashboard", runs: "briefcase", teams: "users", products: "layers",
+  dashboard: "layout-dashboard", runs: "briefcase", teams: "users", products: "id-card",
   reports: "clipboard-check", schedule: "calendar", budget: "wallet", training: "book-open", settings: "settings"
 };
 const navItems = [
   { icon: navIcons.dashboard, label: "Dashboard", id: "dashboard" },
-  { icon: navIcons.runs, label: "Client Engagements", id: "runs" },
+  { icon: navIcons.runs, label: "Requisitions", id: "runs" },
   { icon: navIcons.teams, label: "HR Team", id: "teams" },
-  { icon: navIcons.products, label: "Program Catalog", id: "products" },
-  { icon: navIcons.reports, label: "HR Insights", id: "reports" },
-  { icon: navIcons.schedule, label: "Schedule", id: "schedule" },
-  { icon: navIcons.budget, label: "Budget", id: "budget" },
-  { icon: navIcons.training, label: "Resource Library", id: "training" },
+  { icon: navIcons.products, label: "Employee Directory", id: "products" },
+  { icon: navIcons.reports, label: "Performance Reviews", id: "reports" },
+  { icon: navIcons.schedule, label: "HR Calendar", id: "schedule" },
+  { icon: navIcons.budget, label: "Payroll & Budget", id: "budget" },
+  { icon: navIcons.training, label: "Policy Library", id: "training" },
   { icon: navIcons.settings, label: "Settings", id: "settings" }
 ];
-const statusColors = { "Active": "status-active", "Ramping Up": "status-field", "Completed": "status-complete", "Review": "status-review" };
-const stockColor = { "High Demand": "#8FAE7C", "Steady Demand": "#E3B463", "Limited Capacity": "#C97B63" };
-const reportStatusColor = { "Published": "#8FAE7C", "In Review": "#E3B463", "In Draft": "#9AA5B1" };
-const scheduleTypeColor = { urgent: "#C97B63", normal: "#C0923F", meeting: "#9AA5B1" };
+const statusColors = { "Interviewing": "status-active", "Sourcing": "status-field", "Filled": "status-complete", "Offer Stage": "status-review" };
+const engagementColor = { "Excellent": "#3ddc84", "Good": "#FFD400", "Needs Attention": "#FF5C5C" };
+const reportStatusColor = { "Published": "#3ddc84", "In Review": "#FFD400", "In Draft": "#9AA5B1" };
+const scheduleTypeColor = { urgent: "#FF5C5C", normal: "#00C48C", meeting: "#9AA5B1" };
 const pageMap = {
   dashboard: { title: "Dashboard", sub: "" },
-  runs:      { title: "Engagements", sub: "" },
+  runs:      { title: "Requisitions", sub: "" },
   teams:     { title: "HR Team", sub: "" },
-  products:  { title: "Programs", sub: "" },
-  reports:   { title: "Insights", sub: "" },
-  schedule:  { title: "Schedule", sub: "" },
+  products:  { title: "Employees", sub: "" },
+  reports:   { title: "Reviews", sub: "" },
+  schedule:  { title: "Calendar", sub: "" },
   budget:    { title: "Budget", sub: "" },
-  training:  { title: "Resource", sub: "" },
+  training:  { title: "Policies", sub: "" },
   settings:  { title: "Settings", sub: "" }
 };
 
@@ -163,12 +156,12 @@ let state = {
   settings: { notifications: true, emailDigest: false, darkMode: true, language: "English" }
 };
 
-function fmt(n) { return "$" + n.toLocaleString(); }
+function fmt(n) { return "₹" + n.toLocaleString('en-IN'); }
 function go404() { window.location.href = "404.html"; }
 
-function regionTag(facility) {
-  const c = serviceLineAccents[facility] || "#C0923F";
-  return `<span class="region-tag" style="color:${c};border-color:${c};background:${c}22;">${facility}</span>`;
+function regionTag(office) {
+  const c = officeAccents[office] || "#00C48C";
+  return `<span class="region-tag" style="color:${c};border-color:${c};background:${c}22;">${office}</span>`;
 }
 
 function animateStatBars(){
@@ -182,25 +175,12 @@ function animateStatBars(){
   });
 }
 
-function fleetSnapshotHtml(){
-  const imgs = teamSnapshot.map(f =>
-    `<div class="fleet-img">
-      <img src="${f.src}" alt="${f.title}" loading="lazy">
-      <div class="fleet-cap"><b>${f.tag}</b>${f.title}</div>
-    </div>`
-  ).join("");
-  return `<div class="card">
-    <div class="card-header"><div><h2 class="card-title">Team Snapshot</h2><p class="card-sub">Live moments from active client work</p></div></div>
-    <div class="fleet-scroll">${imgs}</div>
-  </div>`;
-}
-
 function renderDashboard() {
   const stats = [
-    { icon: "briefcase", delta: "+3 this month", value: "9", label: "Active Client Engagements", bar: 72, accent: true },
-    { icon: "users", delta: "+180 this quarter", value: "1,240", label: "Employees Supported", bar: 64 },
-    { icon: "wallet", delta: "On track", value: "$2.76M", label: "Retainer Budget Under Management", bar: 88 },
-    { icon: "layers", delta: "+1 this quarter", value: "6", label: "Active Service Lines", bar: 90 }
+    { icon: "briefcase", delta: "+3 this month", value: "8", label: "Open Requisitions", bar: 72, accent: true },
+    { icon: "user-plus", delta: "+18 this week", value: "142", label: "Employees Onboarded", bar: 64 },
+    { icon: "wallet", delta: "On track", value: "₹8.4Cr", label: "Total Payroll Budget", bar: 88 },
+    { icon: "building-2", delta: "+2 this quarter", value: "6", label: "Active Offices", bar: 90 }
   ];
   const statsHtml = stats.map(s =>
     `<div class="stat-card ${s.accent ? "stat-accent" : ""}">
@@ -210,10 +190,10 @@ function renderDashboard() {
     </div>`
   ).join("");
 
-  const rows = clientEngagements.slice(0, 5).map(t =>
+  const rows = requisitions.slice(0, 5).map(t =>
     `<tr>
       <td><div class="t-name">${t.name}</div><div class="t-sub">${t.site} · ${t.manager}</div></td>
-      <td>${regionTag(t.facility)}</td>
+      <td>${regionTag(t.office)}</td>
       <td class="type-col">${t.type}</td>
       <td><span class="status-badge ${statusColors[t.status]}">${t.status}</span></td>
       <td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill" data-w="${t.progress}"></div></div><span class="progress-pct">${t.progress}%</span></div></td>
@@ -223,7 +203,7 @@ function renderDashboard() {
   ).join("");
 
   const feedIcons = { milestone: "trophy", performance: "trending-up", complete: "check-circle-2", alert: "alert-triangle", update: "sparkles" };
-  const feedHtml = liveFeed.map(a =>
+  const feedHtml = hrFeed.map(a =>
     `<li class="activity-item">
       <span class="act-icon"><i data-lucide="${feedIcons[a.type] || 'circle'}"></i></span>
       <div class="act-body"><p class="act-text">${a.text}</p><span class="act-time">${a.time}</span></div>
@@ -239,11 +219,11 @@ function renderDashboard() {
   ).join("");
 
   const milestones = [
-    { site: "Ashgrove SaaS", event: "Global payroll go-live", date: "Jun 21", done: false, urgent: true },
-    { site: "Fieldstone Health", event: "Compliance filing audit", date: "Jun 25", done: false, urgent: false },
-    { site: "Harborview Retail", event: "Open enrollment session", date: "Jul 2", done: false, urgent: false },
-    { site: "Bellcrest Analytics", event: "Dashboard refresh review", date: "Aug 05", done: false, urgent: false },
-    { site: "Tidewater Systems", event: "Final search report submitted", date: "Jun 14", done: true, urgent: false }
+    { site: "Bengaluru Engineering", event: "New hire onboarding cohort", date: "Jun 21", done: false, urgent: true },
+    { site: "Hyderabad Office", event: "Quarterly HRBP review", date: "Jun 25", done: false, urgent: false },
+    { site: "Mumbai Office", event: "Payroll audit & compliance check", date: "Jul 2", done: false, urgent: false },
+    { site: "Gurugram Office", event: "Offer stage final review", date: "Aug 05", done: false, urgent: false },
+    { site: "HRBP Program", event: "Final report submitted", date: "Jun 14", done: true, urgent: false }
   ];
   const msHtml = milestones.map(m => {
     const parts = m.date.split(" ");
@@ -257,12 +237,12 @@ function renderDashboard() {
   }).join("");
 
   const legend = [
-    { color: "#C0923F", label: "Payroll & Compliance", count: 2 },
-    { color: "#6E93B0", label: "Talent Acquisition", count: 2 },
-    { color: "#8FAE7C", label: "Benefits Administration", count: 1 },
-    { color: "#B98CA3", label: "Performance Management", count: 2 },
-    { color: "#E3B463", label: "Employee Onboarding", count: 1 },
-    { color: "#9AA5B1", label: "HR Analytics", count: 1 }
+    { color: "#00C48C", label: "Engineering", count: 2 },
+    { color: "#7CD859", label: "Sales", count: 1 },
+    { color: "#FFD400", label: "Human Resources", count: 2 },
+    { color: "#4FB6FF", label: "Marketing", count: 1 },
+    { color: "#FF8FD8", label: "Customer Support", count: 1 },
+    { color: "#9AA5B1", label: "Finance", count: 1 }
   ];
   const legendHtml = legend.map(l =>
     `<li class="legend-item">
@@ -274,20 +254,19 @@ function renderDashboard() {
 
   return `
     <section class="stats-grid">${statsHtml}</section>
-    ${fleetSnapshotHtml()}
     <section class="mid-grid">
       <div class="card">
-        <div class="card-header"><div><h2 class="card-title">Active Client Engagements</h2><p class="card-sub">Current retainer overview</p></div></div>
-        <div class="table-wrapper"><table class="runs-table"><thead><tr><th>Engagement</th><th>Service Line</th><th>Program Type</th><th>Status</th><th>Progress</th><th>Renewal</th><th>Retainer</th></tr></thead><tbody>${rows}</tbody></table></div>
+        <div class="card-header"><div><h2 class="card-title">Open Requisitions</h2><p class="card-sub">Current hiring pipeline overview</p></div></div>
+        <div class="table-wrapper"><table class="runs-table"><thead><tr><th>Role</th><th>Office</th><th>Department</th><th>Stage</th><th>Progress</th><th>Target Close</th><th>Salary Band</th></tr></thead><tbody>${rows}</tbody></table></div>
       </div>
       <div class="card">
-        <div class="card-header"><div><h2 class="card-title">Live Feed</h2><p class="card-sub">Account updates</p></div></div>
+        <div class="card-header"><div><h2 class="card-title">Live Feed</h2><p class="card-sub">People &amp; culture updates</p></div></div>
         <ul class="activity-list">${feedHtml}</ul>
       </div>
     </section>
     <section class="bottom-grid">
       <div class="card">
-        <div class="card-header"><div><h2 class="card-title">HR Team</h2><p class="card-sub">Specialists &amp; account leads</p></div></div>
+        <div class="card-header"><div><h2 class="card-title">HR Team</h2><p class="card-sub">Recruiters &amp; business partners</p></div></div>
         <ul class="team-list">${teamHtml}</ul>
       </div>
       <div class="card">
@@ -295,18 +274,18 @@ function renderDashboard() {
         <ul class="milestone-list">${msHtml}</ul>
       </div>
       <div class="card">
-        <div class="card-header"><div><h2 class="card-title">Engagement Mix</h2><p class="card-sub">By service line</p></div></div>
+        <div class="card-header"><div><h2 class="card-title">Requisition Mix</h2><p class="card-sub">By department</p></div></div>
         <div class="donut-chart">
           <svg viewBox="0 0 120 120" class="donut-svg">
-            <circle cx="60" cy="60" r="48" fill="none" stroke="#1E1A11" stroke-width="16"/>
-            <circle cx="60" cy="60" r="48" fill="none" stroke="#C0923F" stroke-width="16" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 60 60)"/>
-            <circle cx="60" cy="60" r="48" fill="none" stroke="#6E93B0" stroke-width="16" stroke-dashoffset="-52" stroke-linecap="round" transform="rotate(-90 60 60)"/>
-            <circle cx="60" cy="60" r="48" fill="none" stroke="#8FAE7C" stroke-width="16" stroke-dashoffset="-94" stroke-linecap="round" transform="rotate(-90 60 60)"/>
-            <circle cx="60" cy="60" r="48" fill="none" stroke="#B98CA3" stroke-width="16" stroke-dashoffset="-132" stroke-linecap="round" transform="rotate(-90 60 60)"/>
-            <circle cx="60" cy="60" r="48" fill="none" stroke="#E3B463" stroke-width="16" stroke-dashoffset="-166" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="48" fill="none" stroke="#1b1d21" stroke-width="16"/>
+            <circle cx="60" cy="60" r="48" fill="none" stroke="#00C48C" stroke-width="16" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="48" fill="none" stroke="#7CD859" stroke-width="16" stroke-dashoffset="-52" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="48" fill="none" stroke="#FFD400" stroke-width="16" stroke-dashoffset="-94" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="48" fill="none" stroke="#4FB6FF" stroke-width="16" stroke-dashoffset="-132" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="48" fill="none" stroke="#FF8FD8" stroke-width="16" stroke-dashoffset="-166" stroke-linecap="round" transform="rotate(-90 60 60)"/>
             <circle cx="60" cy="60" r="48" fill="none" stroke="#9AA5B1" stroke-width="16" stroke-dashoffset="-196" stroke-linecap="round" transform="rotate(-90 60 60)"/>
-            <text x="60" y="56" text-anchor="middle" class="donut-num">6</text>
-            <text x="60" y="68" text-anchor="middle" class="donut-label">Service Lines</text>
+            <text x="60" y="56" text-anchor="middle" class="donut-num">8</text>
+            <text x="60" y="68" text-anchor="middle" class="donut-label">Roles Open</text>
           </svg>
         </div>
         <ul class="legend-list">${legendHtml}</ul>
@@ -316,13 +295,13 @@ function renderDashboard() {
 }
 
 function renderRuns() {
-  const statuses = ["All", "Active", "Ramping Up", "Review", "Completed"];
-  const filtered = state.runFilter === "All" ? clientEngagements : clientEngagements.filter(e => e.status === state.runFilter);
+  const statuses = ["All", "Interviewing", "Sourcing", "Offer Stage", "Filled"];
+  const filtered = state.runFilter === "All" ? requisitions : requisitions.filter(e => e.status === state.runFilter);
   const stats = [
-    { icon: "briefcase", value: clientEngagements.length, label: "Total Engagements Launched" },
-    { icon: "check-circle-2", value: clientEngagements.filter(e => e.status === "Active").length, label: "Active Now", accent: true },
-    { icon: "trending-up", value: clientEngagements.filter(e => e.status === "Ramping Up").length, label: "Ramping Up" },
-    { icon: "package-check", value: clientEngagements.filter(e => e.status === "Completed").length, label: "Completed" }
+    { icon: "briefcase", value: requisitions.length, label: "Total Roles Opened" },
+    { icon: "check-circle-2", value: requisitions.filter(e => e.status === "Interviewing").length, label: "Interviewing Now", accent: true },
+    { icon: "trending-up", value: requisitions.filter(e => e.status === "Sourcing").length, label: "Sourcing" },
+    { icon: "user-check", value: requisitions.filter(e => e.status === "Filled").length, label: "Filled" }
   ];
   const statsHtml = stats.map((s, i) => {
     const bar = [100, 60, 40, 20][i];
@@ -340,7 +319,7 @@ function renderRuns() {
   const rows = filtered.map(t =>
     `<tr>
       <td><div class="t-name">${t.name}</div><div class="t-sub">${t.site}</div></td>
-      <td>${regionTag(t.facility)}</td>
+      <td>${regionTag(t.office)}</td>
       <td class="type-col">${t.type}</td>
       <td><span class="status-badge ${statusColors[t.status]}">${t.status}</span></td>
       <td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill" data-w="${t.progress}"></div></div><span class="progress-pct">${t.progress}%</span></div></td>
@@ -353,9 +332,9 @@ function renderRuns() {
   return `
     <section class="stats-grid">${statsHtml}</section>
     <div class="card">
-      <div class="card-header"><div><h2 class="card-title">All Client Engagements</h2><p class="card-sub">Full list of active and past retainers</p></div>
+      <div class="card-header"><div><h2 class="card-title">All Requisitions</h2><p class="card-sub">Full list of open and recently closed roles</p></div>
       <div style="display:flex;gap:8px;flex-wrap:wrap">${filterHtml}</div></div>
-      <div class="table-wrapper"><table class="runs-table"><thead><tr><th>Engagement</th><th>Service Line</th><th>Program Type</th><th>Status</th><th>Progress</th><th>Account Lead</th><th>Renewal</th><th>Retainer</th></tr></thead><tbody>${rows}</tbody></table></div>
+      <div class="table-wrapper"><table class="runs-table"><thead><tr><th>Role</th><th>Office</th><th>Department</th><th>Stage</th><th>Progress</th><th>Recruiter</th><th>Target Close</th><th>Salary Band</th></tr></thead><tbody>${rows}</tbody></table></div>
     </div>
   `;
 }
@@ -364,8 +343,8 @@ function renderTeams() {
   const stats = [
     { icon: "users", value: hrTeam.length, label: "Team Members", bar: 80 },
     { icon: "circle-dot", value: hrTeam.filter(m => m.status === "active").length, label: "Online Now", bar: 85, accent: true },
-    { icon: "briefcase", value: hrTeam.reduce((a, m) => a + m.projects, 0), label: "Active Client Accounts", bar: 70 },
-    { icon: "star", value: Math.round(hrTeam.reduce((a, m) => a + m.experience, 0) / hrTeam.length), label: "Avg. Yrs w/ Stackly", bar: 75 }
+    { icon: "briefcase", value: hrTeam.reduce((a, m) => a + m.projects, 0), label: "Active Requisitions Owned", bar: 70 },
+    { icon: "star", value: Math.round(hrTeam.reduce((a, m) => a + m.experience, 0) / hrTeam.length), label: "Avg. Yrs w/ Talently", bar: 75 }
   ];
   const statsHtml = stats.map(s =>
     `<div class="stat-card ${s.accent ? "stat-accent" : ""}">
@@ -384,26 +363,26 @@ function renderTeams() {
       <div style="font-size:12.5px;color:var(--text-dim);line-height:1.9">
         <div>${m.speciality}</div>
         <div>${m.email}</div>
-        <div>${m.projects} active account${m.projects !== 1 ? "s" : ""} · ${m.experience} yrs experience</div>
+        <div>${m.projects} active requisition${m.projects !== 1 ? "s" : ""} · ${m.experience} yrs experience</div>
       </div>
     </div>`
   ).join("");
 
   return `
     <section class="stats-grid">${statsHtml}</section>
-    <div class="card"><div class="card-header"><div><h2 class="card-title">HR Specialists &amp; Account Team</h2><p class="card-sub">Full team directory</p></div></div>
+    <div class="card"><div class="card-header"><div><h2 class="card-title">Recruiters &amp; HR Business Partners</h2><p class="card-sub">Full team directory</p></div></div>
     <div class="team-grid">${cards}</div></div>
   `;
 }
 
 function renderProducts() {
   const q = state.productSearch.toLowerCase();
-  const filtered = programCatalog.filter(a => a.name.toLowerCase().includes(q) || a.facility.toLowerCase().includes(q));
+  const filtered = employeeDirectory.filter(a => a.name.toLowerCase().includes(q) || a.office.toLowerCase().includes(q));
   const stats = [
-    { icon: "layers", value: "8", label: "Programs Catalogued", bar: 75, accent: true },
-    { icon: "flask-conical", value: "3", label: "In Development", bar: 55 },
-    { icon: "star", value: "2", label: "Featured", bar: 30 },
-    { icon: "refresh-cw", value: "1", label: "Recently Updated", bar: 20 }
+    { icon: "id-card", value: "2,847", label: "Total Employees", bar: 75, accent: true },
+    { icon: "user-plus", value: "142", label: "New Hires (90d)", bar: 55 },
+    { icon: "star", value: "89", label: "Top Performers", bar: 30 },
+    { icon: "alert-circle", value: "34", label: "Flagged for Follow-Up", bar: 20 }
   ];
   const statsHtml = stats.map(s =>
     `<div class="stat-card ${s.accent ? "stat-accent" : ""}">
@@ -413,16 +392,16 @@ function renderProducts() {
     </div>`
   ).join("");
 
-  const badgeBg = { "Bestseller": "rgba(192,146,63,0.2)", "Featured": "rgba(154,165,177,0.18)", "Active": "rgba(143,174,124,0.18)", "Updated": "rgba(227,180,99,0.18)" };
-  const badgeColor = { "Bestseller": "#E3B463", "Featured": "#C9D3D9", "Active": "#B7CBA9", "Updated": "#F3D9A8" };
+  const badgeBg = { "Top Performer": "rgba(0,196,140,0.18)", "Promoted": "rgba(154,165,177,0.18)", "Active": "rgba(61,220,132,0.16)", "New Hire": "rgba(255,212,0,0.16)" };
+  const badgeColor = { "Top Performer": "#7CD859", "Promoted": "#C9D3D9", "Active": "#8fe0ac", "New Hire": "#FFE68A" };
 
   const rows = filtered.map(a =>
     `<tr>
       <td class="type-col" style="font-size:11.5px;font-family:var(--mono)">${a.id}</td>
-      <td><div class="t-name">${a.name}</div><div class="t-sub">${a.facility}</div></td>
+      <td><div class="t-name">${a.name}</div><div class="t-sub">${a.office}</div></td>
       <td class="date-col">${a.category}</td>
       <td class="date-col">${a.date}</td>
-      <td><span style="color:${stockColor[a.stock]};font-weight:700;font-size:12px">${a.stock}</span></td>
+      <td><span style="color:${engagementColor[a.engagement]};font-weight:700;font-size:12px">${a.engagement}</span></td>
       <td><span class="status-badge" style="background:${badgeBg[a.status]};color:${badgeColor[a.status]}">${a.status}</span></td>
     </tr>`
   ).join("");
@@ -430,19 +409,19 @@ function renderProducts() {
   return `
     <section class="stats-grid">${statsHtml}</section>
     <div class="card">
-      <div class="card-header"><div><h2 class="card-title">Program Registry</h2><p class="card-sub">Service programs across all client accounts</p></div>
-      <div class="search-box" style="flex:0 0 auto"><span class="search-icon"><i data-lucide="search"></i></span><input id="product-search-input" placeholder="Search programs…" value="${state.productSearch}"></div></div>
-      <div class="table-wrapper"><table class="runs-table"><thead><tr><th>Code</th><th>Program</th><th>Category</th><th>Launch Date</th><th>Client Demand</th><th>Status</th></tr></thead><tbody>${rows}</tbody></table></div>
+      <div class="card-header"><div><h2 class="card-title">Employee Directory</h2><p class="card-sub">Everyone catalogued across all offices</p></div>
+      <div class="search-box" style="flex:0 0 auto"><span class="search-icon"><i data-lucide="search"></i></span><input id="product-search-input" placeholder="Search employees…" value="${state.productSearch}"></div></div>
+      <div class="table-wrapper"><table class="runs-table"><thead><tr><th>ID</th><th>Employee</th><th>Department</th><th>Join Date</th><th>Engagement</th><th>Status</th></tr></thead><tbody>${rows}</tbody></table></div>
     </div>
   `;
 }
 
 function renderReports() {
   const stats = [
-    { icon: "clipboard-check", value: hrInsights.length, label: "Active Articles", bar: 80, accent: true },
-    { icon: "badge-check", value: hrInsights.filter(p => p.status === "Published").length, label: "Published", bar: 70 },
-    { icon: "hourglass", value: hrInsights.filter(p => p.status === "In Review").length, label: "In Review", bar: 20 },
-    { icon: "eye", value: hrInsights.reduce((a, p) => a + p.reads, 0), label: "Total Reads", bar: 60 }
+    { icon: "clipboard-check", value: performanceReviews.length, label: "Active Reviews", bar: 80, accent: true },
+    { icon: "badge-check", value: performanceReviews.filter(p => p.status === "Published").length, label: "Published", bar: 70 },
+    { icon: "hourglass", value: performanceReviews.filter(p => p.status === "In Review").length, label: "In Review", bar: 20 },
+    { icon: "eye", value: performanceReviews.reduce((a, p) => a + p.reads, 0), label: "Total Views", bar: 60 }
   ];
   const statsHtml = stats.map(s =>
     `<div class="stat-card ${s.accent ? "stat-accent" : ""}">
@@ -452,7 +431,7 @@ function renderReports() {
     </div>`
   ).join("");
 
-  const cards = hrInsights.map(p =>
+  const cards = performanceReviews.map(p =>
     `<div class="research-card">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap">
         <div style="flex:1;min-width:180px">
@@ -462,7 +441,7 @@ function renderReports() {
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0">
           <span style="background:${reportStatusColor[p.status]}22;color:${reportStatusColor[p.status]};border-radius:999px;padding:3px 10px;font-family:var(--mono);font-size:10.5px;font-weight:700;text-transform:uppercase">${p.status}</span>
-          ${p.reads > 0 ? `<span style="font-size:12px;color:var(--text-dim)">${p.reads} reads</span>` : ''}
+          ${p.reads > 0 ? `<span style="font-size:12px;color:var(--text-dim)">${p.reads} views</span>` : ''}
         </div>
       </div>
     </div>`
@@ -470,37 +449,37 @@ function renderReports() {
 
   return `
     <section class="stats-grid">${statsHtml}</section>
-    <div class="card"><div class="card-header"><div><h2 class="card-title">HR Insights</h2><p class="card-sub">Active articles and submissions</p></div></div>
+    <div class="card"><div class="card-header"><div><h2 class="card-title">Performance Reviews</h2><p class="card-sub">Active review cycles and submissions</p></div></div>
     <div style="display:flex;flex-direction:column;gap:14px">${cards}</div></div>
   `;
 }
 
 function renderSchedule() {
-  const rows = scheduleEvents.map(ev => {
+  const rows = hrCalendar.map(ev => {
     const parts = ev.date.split(" ");
     let tag = "";
-    if (ev.type === "urgent") tag = `<span class="evt-tag" style="background:rgba(201,123,99,0.2);color:#F0BDAE">Urgent</span>`;
+    if (ev.type === "urgent") tag = `<span class="evt-tag" style="background:rgba(255,92,92,0.18);color:#FFB3AC">Urgent</span>`;
     if (ev.type === "meeting") tag = `<span class="evt-tag" style="background:rgba(154,165,177,0.2);color:#C9D3D9">Meeting</span>`;
     return `<div class="schedule-row">
       <div style="width:50px;flex-shrink:0;text-align:center">
         <div style="font-family:var(--mono);font-size:10px;font-weight:700;color:${scheduleTypeColor[ev.type]};text-transform:uppercase;letter-spacing:0.04em">${parts[0]}</div>
-        <div style="font-family:var(--display);font-size:18px;color:#EDE6D8">${parts[1]}</div>
+        <div style="font-family:var(--display);font-size:18px;color:#D7E2EA">${parts[1]}</div>
       </div>
       <div style="width:3px;align-self:stretch;border-radius:999px;background:${scheduleTypeColor[ev.type]};opacity:0.7;flex-shrink:0"></div>
       <div style="flex:1;min-width:0">
-        <div style="font-weight:700;color:#EDE6D8;font-size:13.5px">${ev.event}</div>
+        <div style="font-weight:700;color:#D7E2EA;font-size:13.5px">${ev.event}</div>
         <div style="font-size:12px;color:var(--text-dim);margin-top:3px">${ev.site}</div>
       </div>${tag}
     </div>`;
   }).join("");
 
-  return `<div class="card"><div class="card-header"><div><h2 class="card-title">Client Calendar</h2><p class="card-sub">All upcoming go-lives, audits, and deadlines</p></div></div>
+  return `<div class="card"><div class="card-header"><div><h2 class="card-title">HR Calendar</h2><p class="card-sub">All upcoming onboarding, audits, and deadlines</p></div></div>
     <div style="display:flex;flex-direction:column;gap:4px">${rows}</div></div>`;
 }
 
 function renderBudget() {
-  const totalAllocated = budgetData.reduce((a, b) => a + b.allocated, 0);
-  const totalSpent = budgetData.reduce((a, b) => a + b.spent, 0);
+  const totalAllocated = payrollBudget.reduce((a, b) => a + b.allocated, 0);
+  const totalSpent = payrollBudget.reduce((a, b) => a + b.spent, 0);
   const remaining = totalAllocated - totalSpent;
   const utilRate = Math.round((totalSpent / totalAllocated) * 100);
   const stats = [
@@ -517,15 +496,15 @@ function renderBudget() {
     </div>`
   ).join("");
 
-  const rows = budgetData.map(b => {
+  const rows = payrollBudget.map(b => {
     const pct = Math.round((b.spent / b.allocated) * 100);
-    const barGrad = pct > 85 ? "linear-gradient(90deg,#C97B63,#E0A18F)" : "linear-gradient(123deg,#4A360F,#C0923F,#E3B463,#F3D48A)";
+    const barGrad = pct > 85 ? "linear-gradient(90deg,#FF5C5C,#FF9B8A)" : "linear-gradient(123deg,#063927,#00C48C,#7CD859,#FFD400)";
     return `<div>
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px">
-        <div><span style="font-weight:700;color:#EDE6D8;font-size:13.5px">${b.site}</span>
-        <span class="region-tag" style="margin-left:10px;color:${serviceLineAccents[b.facility]};border-color:${serviceLineAccents[b.facility]};background:${serviceLineAccents[b.facility]}22;font-size:10.5px">${b.facility}</span></div>
-        <div style="text-align:right;font-size:12.5px;color:var(--text-dim)"><span style="color:#EDE6D8;font-weight:700;font-family:var(--mono)">${fmt(b.spent)}</span> / ${fmt(b.allocated)}
-        <span style="margin-left:10px;color:${pct > 80 ? "#F0BDAE" : "#B7CBA9"};font-weight:700;font-family:var(--mono)">${pct}%</span></div>
+        <div><span style="font-weight:700;color:#D7E2EA;font-size:13.5px">${b.site}</span>
+        <span class="region-tag" style="margin-left:10px;color:${officeAccents[b.office]};border-color:${officeAccents[b.office]};background:${officeAccents[b.office]}22;font-size:10.5px">${b.office}</span></div>
+        <div style="text-align:right;font-size:12.5px;color:var(--text-dim)"><span style="color:#D7E2EA;font-weight:700;font-family:var(--mono)">${fmt(b.spent)}</span> / ${fmt(b.allocated)}
+        <span style="margin-left:10px;color:${pct > 80 ? "#FFB3AC" : "#7CD859"};font-weight:700;font-family:var(--mono)">${pct}%</span></div>
       </div>
       <div style="height:8px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden">
         <div class="progress-fill" data-w="${pct}" style="background:${barGrad};height:100%;transition-delay:.3s"></div>
@@ -535,17 +514,17 @@ function renderBudget() {
 
   return `
     <section class="stats-grid">${statsHtml}</section>
-    <div class="card"><div class="card-header"><div><h2 class="card-title">Budget by Engagement</h2><p class="card-sub">Allocation vs spend</p></div></div>
+    <div class="card"><div class="card-header"><div><h2 class="card-title">Payroll Budget by Department</h2><p class="card-sub">Allocation vs spend</p></div></div>
     <div>${rows}</div></div>
   `;
 }
 
 function renderTraining() {
   const stats = [
-    { icon: "book-open", value: resourceLibrary.length, label: "Resources", bar: 80, accent: true },
-    { icon: "download", value: resourceLibrary.reduce((a, p) => a + p.downloads, 0).toLocaleString(), label: "Total Downloads", bar: 90 },
-    { icon: "file-text", value: resourceLibrary.reduce((a, p) => a + p.pages, 0).toLocaleString(), label: "Total Pages", bar: 65 },
-    { icon: "calendar-days", value: "2026", label: "Latest Year", bar: 100 }
+    { icon: "book-open", value: policyLibrary.length, label: "Policies & Guides", bar: 80, accent: true },
+    { icon: "download", value: policyLibrary.reduce((a, p) => a + p.downloads, 0).toLocaleString(), label: "Total Downloads", bar: 90 },
+    { icon: "file-text", value: policyLibrary.reduce((a, p) => a + p.pages, 0).toLocaleString(), label: "Total Pages", bar: 65 },
+    { icon: "calendar-days", value: "2025", label: "Latest Year", bar: 100 }
   ];
   const statsHtml = stats.map(s =>
     `<div class="stat-card ${s.accent ? "stat-accent" : ""}">
@@ -555,13 +534,13 @@ function renderTraining() {
     </div>`
   ).join("");
 
-  const cards = resourceLibrary.map(pub =>
+  const cards = policyLibrary.map(pub =>
     `<div class="pub-card">
       <div style="width:30px;height:30px;color:var(--accent-2);margin-bottom:12px"><i data-lucide="file-text" style="width:26px;height:26px"></i></div>
-      <div style="font-weight:700;color:#EDE6D8;font-size:14px;margin-bottom:6px;line-height:1.4">${pub.title}</div>
+      <div style="font-weight:700;color:#D7E2EA;font-size:14px;margin-bottom:6px;line-height:1.4">${pub.title}</div>
       <div style="font-size:12px;color:var(--text-dimmer);margin-bottom:14px">${pub.type} · ${pub.year} · ${pub.pages} pages</div>
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-        <span style="font-family:var(--mono);font-size:11.5px;color:#E3B463;font-weight:700">${pub.downloads.toLocaleString()} downloads</span>
+        <span style="font-family:var(--mono);font-size:11.5px;color:#7CD859;font-weight:700">${pub.downloads.toLocaleString()} downloads</span>
         <button class="btn-outline" style="padding:5px 12px;font-size:10.5px" onclick="go404()">View</button>
       </div>
     </div>`
@@ -569,13 +548,13 @@ function renderTraining() {
 
   return `
     <section class="stats-grid">${statsHtml}</section>
-    <div class="card"><div class="card-header"><div><h2 class="card-title">Resource Library</h2><p class="card-sub">Guides, playbooks, and compliance references</p></div></div>
+    <div class="card"><div class="card-header"><div><h2 class="card-title">Policy Library</h2><p class="card-sub">Handbooks, playbooks, and reference guides</p></div></div>
     <div class="pub-grid">${cards}</div></div>
   `;
 }
 
 function toggleHtml(id, value) {
-  return `<div class="toggle-switch" data-toggle="${id}" style="background:${value ? "#C0923F" : "rgba(255,255,255,0.14)"}">
+  return `<div class="toggle-switch" data-toggle="${id}" style="background:${value ? "#00C48C" : "rgba(255,255,255,0.14)"}">
     <div class="toggle-knob" style="left:${value ? "20px" : "3px"}"></div></div>`;
 }
 
@@ -586,43 +565,43 @@ function renderSettings() {
   return `
     <div class="card"><div class="card-header"><div><h2 class="card-title">Account</h2><p class="card-sub">Signed-in profile — shown wherever your account appears in the console</p></div></div>
       <div style="display:flex;align-items:center;gap:18px;margin-bottom:20px;flex-wrap:wrap">
-        <div style="width:64px;height:64px;border-radius:50%;border:2px solid rgba(192,146,63,0.45);background:var(--accent-soft);color:var(--accent-2);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:24px;text-transform:uppercase;flex-shrink:0">${currentInitial}</div>
-        <div><div style="font-weight:700;color:#EDE6D8;font-size:16px;text-transform:capitalize">${displayName}</div>
+        <div style="width:64px;height:64px;border-radius:50%;border:2px solid rgba(0,196,140,0.4);background:var(--accent-soft);color:var(--accent-2);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:24px;text-transform:uppercase;flex-shrink:0">${currentInitial}</div>
+        <div><div style="font-weight:700;color:#D7E2EA;font-size:16px;text-transform:capitalize">${displayName}</div>
         <div style="font-size:13px;color:var(--text-dim);margin-top:2px">${displayEmail}</div>
-        <div style="font-family:var(--mono);font-size:12px;color:#E3B463;margin-top:4px">${currentUser ? (currentUser.role === 'admin' ? 'Admin account' : 'Specialist account') : 'Not signed in'}</div></div>
+        <div style="font-family:var(--mono);font-size:12px;color:#7CD859;margin-top:4px">${currentUser ? (currentUser.role === 'admin' ? 'HR Admin account' : 'Team member account') : 'Not signed in'}</div></div>
       </div>
-      <button class="btn-outline" style="border-color:#C0923F;color:#E3B463" onclick="go404()">Edit Profile</button>
+      <button class="btn-outline" style="border-color:#00C48C;color:#7CD859" onclick="go404()">Edit Profile</button>
     </div>
     <div class="card"><div class="card-header"><div><h2 class="card-title">Preferences</h2><p class="card-sub">Notifications and display</p></div></div>
       <div>
         <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.06)">
-          <div><div style="font-weight:700;color:#EDE6D8;font-size:13.5px">Push Notifications</div><div style="font-size:12.5px;color:var(--text-dim);margin-top:2px">Receive alerts for status changes and deadline shifts</div></div>
+          <div><div style="font-weight:700;color:#D7E2EA;font-size:13.5px">Push Notifications</div><div style="font-size:12.5px;color:var(--text-dim);margin-top:2px">Receive alerts for stage changes and deadline shifts</div></div>
           ${toggleHtml("notifications", s.notifications)}
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.06)">
-          <div><div style="font-weight:700;color:#EDE6D8;font-size:13.5px">Weekly Email Digest</div><div style="font-size:12.5px;color:var(--text-dim);margin-top:2px">Summary of engagement activity sent every Monday</div></div>
+          <div><div style="font-weight:700;color:#D7E2EA;font-size:13.5px">Weekly Email Digest</div><div style="font-size:12.5px;color:var(--text-dim);margin-top:2px">Summary of hiring activity sent every Monday</div></div>
           ${toggleHtml("emailDigest", s.emailDigest)}
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.06)">
-          <div><div style="font-weight:700;color:#EDE6D8;font-size:13.5px">Dark Mode</div><div style="font-size:12.5px;color:var(--text-dim);margin-top:2px">Use dark colour scheme across the console</div></div>
+          <div><div style="font-weight:700;color:#D7E2EA;font-size:13.5px">Dark Mode</div><div style="font-size:12.5px;color:var(--text-dim);margin-top:2px">Use dark colour scheme across the console</div></div>
           ${toggleHtml("darkMode", s.darkMode)}
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;padding-top:18px">
-          <div><div style="font-weight:700;color:#EDE6D8;font-size:13.5px">Language</div><div style="font-size:12.5px;color:var(--text-dim);margin-top:2px">Interface display language</div></div>
-          <select class="pref-select" id="lang-select">${["English", "French", "Spanish", "Mandarin", "Portuguese"].map(l => `<option ${s.language === l ? "selected" : ""}>${l}</option>`).join("")}</select>
+          <div><div style="font-weight:700;color:#D7E2EA;font-size:13.5px">Language</div><div style="font-size:12.5px;color:var(--text-dim);margin-top:2px">Interface display language</div></div>
+          <select class="pref-select" id="lang-select">${["English", "Hindi", "French", "Spanish", "Portuguese"].map(l => `<option ${s.language === l ? "selected" : ""}>${l}</option>`).join("")}</select>
         </div>
       </div>
     </div>
     <div class="card"><div class="card-header"><div><h2 class="card-title">Session</h2><p class="card-sub">Sign out of this account on this device</p></div></div>
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px">
-        <div style="font-size:12.5px;color:var(--text-dim)">Signed in as <strong style="color:#EDE6D8">${displayEmail}</strong>. Logging out will clear this session and return you to the sign-in screen.</div>
-        <button class="btn-outline" style="border-color:rgba(201,123,99,0.4);color:#F0BDAE;flex-shrink:0" id="settings-logout-btn">Logout</button>
+        <div style="font-size:12.5px;color:var(--text-dim)">Signed in as <strong style="color:#D7E2EA">${displayEmail}</strong>. Logging out will clear this session and return you to the sign-in screen.</div>
+        <button class="btn-outline" style="border-color:rgba(255,92,92,0.4);color:#FFB3AC;flex-shrink:0" id="settings-logout-btn">Logout</button>
       </div>
     </div>
     <div class="card"><div class="card-header"><div><h2 class="card-title">Danger Zone</h2><p class="card-sub">Irreversible account actions</p></div></div>
       <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <button class="btn-outline" style="border-color:rgba(201,123,99,0.4);color:#F0BDAE" onclick="go404()">Reset Password</button>
-        <button class="btn-outline" style="border-color:rgba(201,123,99,0.4);color:#F0BDAE" onclick="go404()">Delete Account</button>
+        <button class="btn-outline" style="border-color:rgba(255,92,92,0.4);color:#FFB3AC" onclick="go404()">Reset Password</button>
+        <button class="btn-outline" style="border-color:rgba(255,92,92,0.4);color:#FFB3AC" onclick="go404()">Delete Account</button>
       </div>
     </div>
   `;
@@ -675,10 +654,12 @@ function navigateTo(id) {
 function openSidebar() {
   document.getElementById("sidebar").classList.add("sidebar-open");
   document.getElementById("sidebar-overlay").classList.add("show");
+  document.body.classList.add("no-scroll");
 }
 function closeSidebar() {
   document.getElementById("sidebar").classList.remove("sidebar-open");
   document.getElementById("sidebar-overlay").classList.remove("show");
+  document.body.classList.remove("no-scroll");
 }
 function closeTopbarUserMenu() {
   document.getElementById("topbar-user").classList.remove("open");
@@ -724,6 +705,11 @@ document.addEventListener("change", function(e) {
   if (e.target && e.target.id === "lang-select") {
     state.settings.language = e.target.value;
   }
+});
+
+// Close mobile sidebar automatically if the viewport is resized back to desktop
+window.addEventListener("resize", function() {
+  if (window.innerWidth > 1024) closeSidebar();
 });
 
 paintUserChrome();

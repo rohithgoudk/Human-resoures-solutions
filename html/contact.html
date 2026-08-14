@@ -193,12 +193,12 @@
         <form id="contactForm" class="premium-form" novalidate>
           <div class="form-row">
             <div class="input-group">
-              <input type="text" id="firstName" required>
+              <input type="text" id="firstName" required pattern="[A-Za-z\s'-]+" title="Letters only, please." autocomplete="given-name">
               <label for="firstName">First Name</label>
               <span class="error-text"></span>
             </div>
             <div class="input-group">
-              <input type="text" id="lastName" required>
+              <input type="text" id="lastName" required pattern="[A-Za-z\s'-]+" title="Letters only, please." autocomplete="family-name">
               <label for="lastName">Last Name</label>
               <span class="error-text"></span>
             </div>
