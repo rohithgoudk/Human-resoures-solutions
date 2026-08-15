@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Generic stagger-reveal for this page's card grids ---------- */
   if (hasGSAP && typeof ScrollTrigger !== 'undefined') {
-    const groups = ['.sig-grid', '.browse-grid', '.review-card-row'];
+    const groups = ['.sig-grid', '.browse-grid'];
     groups.forEach(sel => {
       document.querySelectorAll(sel).forEach(grid => {
         const items = gsap.utils.toArray(grid.children);
@@ -47,6 +47,16 @@ document.addEventListener('DOMContentLoaded', () => {
         opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 22, duration: 0.7, stagger: 0.1,
         ease: 'power3.out',
         scrollTrigger: { trigger: el, start: 'top 88%' }
+      });
+    });
+
+    // Trending carousel + reviews rows fade in as a whole (no per-card
+    // scroll-jacking — the cards themselves are just static flex children
+    // inside a manually-scrollable row now)
+    document.querySelectorAll('.trending-carousel, .reviews-row').forEach(el => {
+      gsap.from(el, {
+        opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 24, duration: 0.7, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 90%' }
       });
     });
 
@@ -85,25 +95,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* ---------- Pinned horizontal scroll: trending track ---------- */
-  const track = document.querySelector('.trending-track');
-  if (hasGSAP && typeof ScrollTrigger !== 'undefined' && track && window.innerWidth > 820 && !reduceMotion) {
-    const getScrollAmount = () => -(track.scrollWidth - window.innerWidth);
-
-    const tween = gsap.to(track, { x: getScrollAmount, ease: 'none' });
-
-    ScrollTrigger.create({
-      trigger: '.trending-pin-wrapper',
-      start: 'top top',
-      end: () => `+=${getScrollAmount() * -1}`,
-      pin: true,
-      animation: tween,
-      scrub: 1,
-      invalidateOnRefresh: true
-    });
+  /* ---------- Arrow-controlled carousels (Trending + both Reviews rows) ----------
+     Plain manual horizontal scroll — no auto-play, no scroll-jacking/pin.
+     Works the same way on desktop (click) and mobile (tap, or swipe the
+     row directly — scroll-snap keeps cards aligned either way). */
+  function refreshArrowState(track) {
+    if (!track) return;
+    const prevBtn = document.querySelector('.carousel-arrow[data-target="' + track.id + '"][data-dir="prev"]');
+    const nextBtn = document.querySelector('.carousel-arrow[data-target="' + track.id + '"][data-dir="next"]');
+    const maxScroll = track.scrollWidth - track.clientWidth - 2;
+    if (prevBtn) prevBtn.disabled = track.scrollLeft <= 2;
+    if (nextBtn) nextBtn.disabled = maxScroll <= 2 || track.scrollLeft >= maxScroll;
   }
-  // On narrow viewports the CSS switches .trending-track to a plain
-  // swipeable overflow-x row instead — no JS needed there.
+
+  function stepDistance(track) {
+    const firstCard = track.firstElementChild;
+    if (!firstCard) return track.clientWidth;
+    const style = window.getComputedStyle(track);
+    const gap = parseFloat(style.columnGap || style.gap || '0') || 0;
+    return firstCard.getBoundingClientRect().width + gap;
+  }
+
+  document.querySelectorAll('.carousel-arrow').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const track = document.getElementById(btn.dataset.target);
+      if (!track) return;
+      const dist = stepDistance(track);
+      track.scrollBy({ left: btn.dataset.dir === 'prev' ? -dist : dist, behavior: 'smooth' });
+    });
+  });
+
+  document.querySelectorAll('.trending-track-container, .reviews-track').forEach(track => {
+    refreshArrowState(track);
+    track.addEventListener('scroll', () => window.requestAnimationFrame(() => refreshArrowState(track)), { passive: true });
+    window.addEventListener('resize', () => refreshArrowState(track));
+  });
 
   /* ---------- Services search form (validated, redirects to 404.html) ---------- */
   const searchForm = document.getElementById('servicesSearchForm');
@@ -158,12 +184,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---------- Insider list email validation ----------
+     FIX: the old regex (/^[^\s@]+@[^\s@]+\.[^\s@]+$/) accepted a SINGLE
+     character after the dot — "gmail.c" passed as "valid" and the form
+     redirected to 404.html. Two changes fix this:
+       1. Require a real-length ending (2+ letters), same rule as the
+          homepage newsletter form.
+       2. Explicitly catch well-known provider typos ("gmail.co" instead
+          of "gmail.com") that are technically valid-*looking* domains
+          but clearly not what the person meant to type. */
+  const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+  const KNOWN_PROVIDERS = {
+    'gmail':      'gmail.com',
+    'googlemail': 'googlemail.com',
+    'yahoo':      'yahoo.com',
+    'outlook':    'outlook.com',
+    'hotmail':    'hotmail.com',
+    'live':       'live.com',
+    'msn':        'msn.com',
+    'icloud':     'icloud.com',
+    'me':         'me.com',
+    'aol':        'aol.com',
+    'proton':     'proton.me',
+    'protonmail': 'protonmail.com',
+    'zoho':       'zoho.com',
+    'yandex':     'yandex.com',
+    'rediffmail': 'rediffmail.com'
+  };
+
+  function getEmailError(rawValue) {
+    const value = (rawValue || '').trim();
+    if (!value) return 'Email address is required.';
+    if (!EMAIL_PATTERN.test(value)) return 'Please enter a complete, valid email address.';
+
+    const domain = (value.split('@')[1] || '').toLowerCase();
+    const domainRoot = domain.split('.')[0];
+    const canonical = KNOWN_PROVIDERS[domainRoot];
+    if (canonical && domain !== canonical) {
+      return 'Did you mean ' + canonical + '? Please enter a complete, correct email address.';
+    }
+    return '';
+  }
+
   /* ---------- Insider list form (validated email, magnetic button) ---------- */
   const insiderForm = document.getElementById('insiderForm');
   if (insiderForm) {
     const emailInput = document.getElementById('insiderEmail');
     const emailError = document.getElementById('insiderEmailError');
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const showError = (msg) => {
       emailInput.classList.add('is-invalid');
@@ -178,9 +245,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     insiderForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const value = emailInput.value.trim();
-      if (!value) { showError('Email address is required.'); return; }
-      if (!emailRegex.test(value)) { showError('Please enter a valid email address.'); return; }
+      const err = getEmailError(emailInput.value);
+      if (err) { showError(err); return; }
       clearError();
 
       const btnText = document.querySelector('#insiderForm .btn-text');
@@ -193,7 +259,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1200);
     });
 
-    emailInput.addEventListener('input', clearError);
+    // Re-validate live so the error clears the moment the address is
+    // actually complete and correct — not just on any keystroke.
+    emailInput.addEventListener('input', () => {
+      if (!getEmailError(emailInput.value)) clearError();
+    });
+    emailInput.addEventListener('blur', () => {
+      const err = getEmailError(emailInput.value);
+      if (err && emailInput.value.trim()) showError(err);
+    });
   }
 
   /* Magnetic pull toward the cursor on desktop, ignored on touch */

@@ -479,8 +479,6 @@
    .programs{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
    @media (max-width:980px){ .programs{ grid-template-columns:1fr; } }
    @media (max-width:560px){ .program-media{ height:200px; } }
-   /* Copy now lives in its own solid panel under the photo — never on
-      top of it — so legibility never depends on how bright the image is. */
    .program-card{
      border-radius:var(--radius-l); overflow:hidden;
      background:var(--ink);
@@ -537,8 +535,6 @@
       ========================================================= */
    .testimonial{ display:grid; grid-template-columns:220px 1fr; gap:56px; align-items:center; }
    @media (max-width:760px){ .testimonial{ grid-template-columns:1fr; gap:28px; justify-items:center; text-align:center; } }
-   /* Fixed square frame — every client photo (default + carousel swaps)
-      renders at the exact same size regardless of its source dimensions. */
    .testi-photo{ width:220px; height:220px; min-width:220px; min-height:220px; border-radius:var(--radius-l); overflow:hidden; }
    .testi-photo img{ width:100%; height:100%; object-fit:cover; object-position:center; transition:opacity .3s ease; }
    @media (max-width:760px){ .testi-photo{ margin:0 auto; } }
@@ -593,7 +589,7 @@
    .newsletter-copy .eyebrow::before{ background:var(--brass-tint); }
    .newsletter-copy h2{ color:var(--paper); font-size:clamp(26px,3.4vw,36px); margin-top:14px; }
    .newsletter-copy p{ margin-top:12px; color:rgba(241,239,228,0.78); font-size:15px; line-height:1.55; }
-   .newsletter-form{ display:flex; gap:10px; position:relative; z-index:1; flex-wrap:wrap; }
+   .newsletter-form{ display:flex; gap:10px; position:relative; z-index:1; flex-wrap:wrap; align-items:flex-start; }
    .newsletter-form input{
      padding:15px 20px; border-radius:999px; border:1px solid rgba(241,239,228,0.3);
      background:rgba(241,239,228,0.08); color:var(--paper); font-size:14.5px; min-width:240px; flex:1;
@@ -605,6 +601,28 @@
      .newsletter{ padding:40px 28px; }
      .newsletter-form{ width:100%; }
      .newsletter-form input{ min-width:0; }
+   }
+
+   /* ---- Inline validation error state (used by index.js on
+      [data-demo-form] submit) ---- */
+   .is-invalid{
+     border-color:#C0392B !important;
+     box-shadow:0 0 0 3px rgba(192,57,43,0.18) !important;
+   }
+   .field-error{
+     display:block;
+     width:100%;
+     margin-top:8px;
+     font-size:13px;
+     font-family:var(--font-body);
+     color:#E8B4AC; /* readable on the dark .newsletter panel */
+   }
+   /* Light-background forms (e.g. contact page .field, .qs-field) need
+      a darker red instead of the light one above */
+   .field .field-error,
+   .qs-field .field-error,
+   .contact-form .field-error{
+     color:#C0392B;
    }
    
    /* =========================================================
