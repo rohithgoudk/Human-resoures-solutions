@@ -1,34 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------------------------------------------------------
-     Mobile nav toggle (full-screen overlay, matches login.html)
+     Header scroll state, hamburger, and mobile nav open/close
+     are all handled by the SHARED js/index.js (identical to
+     every other page) — none of that logic lives here anymore.
   --------------------------------------------------------- */
-  const hamburger = document.querySelector('.hamburger');
-  const mobileNav = document.getElementById('mobileNav');
-  const mobileNavClose = document.getElementById('mobileNavClose');
-
-  function closeMobileNav() {
-    hamburger.classList.remove('is-open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    mobileNav.classList.remove('is-open');
-    document.body.style.overflow = '';
-  }
-
-  function toggleMobileNav() {
-    const isOpen = hamburger.classList.toggle('is-open');
-    hamburger.setAttribute('aria-expanded', String(isOpen));
-    mobileNav.classList.toggle('is-open', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  }
-
-  if (hamburger && mobileNav) {
-    hamburger.addEventListener('click', toggleMobileNav);
-    if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
-    mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileNav));
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 860) closeMobileNav();
-    });
-  }
 
   /* ---------------------------------------------------------
      Page-load motion (respects reduced-motion)

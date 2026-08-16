@@ -5,18 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Stackly HR Solutions</title>
 <meta name="description" content="Talk to Stackly's people-operations team. Book a consultation, get support on an existing account, or visit our Salem studio.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/index.css">
 <link rel="stylesheet" href="../css/contact.css">
 </head>
 <body class="hero-page">
 
-<!-- ============ HEADER ============ -->
+<!-- ============ HEADER (shared — identical markup/classes to index.html, driven entirely by css/index.css + js/index.js) ============ -->
 <header class="site-header">
   <div class="wrap">
     <a href="index.html" class="brand">
-      <img src="../assets/Logo.webp" alt="Stackly" class="brand-logo">
+      <img src="../assets/Logo.webp" alt="" class="brand-logo">
     </a>
 
     <nav class="main-nav" aria-label="Primary">
@@ -43,14 +41,14 @@
   </div>
 </header>
 
-<!-- ============ MOBILE NAV ============ -->
+<!-- ============ MOBILE NAV (shared — identical markup/classes to index.html, driven entirely by css/index.css + js/index.js) ============ -->
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
-  <div class="mobile-nav-top">
-    <a href="index.html" class="brand mobile-nav-brand">
-      <img src="../assets/Logo.webp" alt="Stackly" class="brand-logo">
+  <div class="mobile-nav-head">
+    <a href="index.html" class="brand mobile-brand">
+      <img src="../assets/Logo.webp" alt="" class="brand-logo">
     </a>
     <button class="mobile-nav-close" aria-label="Close menu">
-      <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
     </button>
   </div>
 
@@ -72,6 +70,7 @@
       Sign Up
     </a>
   </div>
+
   <div class="mobile-nav-foot">
     <span>stackly@info.com</span>
     <span>+161 45674567</span>
@@ -267,7 +266,7 @@
   </div>
 </section>
 
-<!-- ============ FAQ ============ -->
+<!-- ============ FAQ (shared markup — accordion driven entirely by js/index.js) ============ -->
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
@@ -278,33 +277,23 @@
 
     <div class="faq-list reveal">
       <div class="faq-item">
-        <button class="faq-q">
-          <span>How fast will I hear back?</span><span class="plus"></span>
-        </button>
+        <button class="faq-q"><span>How fast will I hear back?</span><span class="plus"></span></button>
         <div class="faq-a"><p>Most messages get a reply within four business hours. If you're an active client with an urgent issue, use the priority line in your client portal instead of this form — it routes straight to your dedicated HR lead.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">
-          <span>Can I book a consultation before signing up?</span><span class="plus"></span>
-        </button>
+        <button class="faq-q"><span>Can I book a consultation before signing up?</span><span class="plus"></span></button>
         <div class="faq-a"><p>Yes. Select "Book a Consultation" in the form above and we'll schedule a free 30-minute call to walk through your current setup and where we could help.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">
-          <span>Do you offer support outside business hours?</span><span class="plus"></span>
-        </button>
+        <button class="faq-q"><span>Do you offer support outside business hours?</span><span class="plus"></span></button>
         <div class="faq-a"><p>Active clients get 24/7 access to their HR lead for urgent matters — payroll issues, compliance deadlines, or anything time-sensitive. General inquiries submitted here are handled during office hours.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">
-          <span>Can I visit the Salem office in person?</span><span class="plus"></span>
-        </button>
+        <button class="faq-q"><span>Can I visit the Salem office in person?</span><span class="plus"></span></button>
         <div class="faq-a"><p>Absolutely — drop-ins are welcome during office hours, though booking ahead means the right specialist will be free to meet with you.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">
-          <span>I'm having trouble with the form. What else can I do?</span><span class="plus"></span>
-        </button>
+        <button class="faq-q"><span>I'm having trouble with the form. What else can I do?</span><span class="plus"></span></button>
         <div class="faq-a"><p>Email us directly at info@thestackly.com or call +91 98765 43210 during office hours, and we'll pick it up from there.</p></div>
       </div>
     </div>
@@ -317,13 +306,13 @@
   <div class="glow-orb orb-2"></div>
 
   <div class="wrap">
-    <div class="app-header">
+    <div class="app-header reveal">
       <span class="eyebrow">The Stackly App</span>
       <h2>Carry your HR team in your pocket</h2>
     </div>
 
     <div class="app-bento-grid">
-      <div class="bento-card bento-large">
+      <div class="bento-card bento-large reveal">
         <div class="bento-content">
           <h3 class="bento-title">Frictionless HR, anywhere.</h3>
           <p class="bento-desc">Check pay stubs, message your dedicated HR lead instantly, and manage time off — all from your phone, no ticket queue required.</p>
@@ -347,7 +336,7 @@
         </div>
       </div>
 
-      <div class="bento-card bento-small">
+      <div class="bento-card bento-small reveal">
         <div class="card-glass-icon">
           <svg viewBox="0 0 24 24" fill="none"><path d="M4 13a8 8 0 0116 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><rect x="3" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.7"/><rect x="17" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.7"/></svg>
         </div>
@@ -355,7 +344,7 @@
         <p class="bento-desc-small">Tap to instantly reach our HR helpdesk team, day or night.</p>
       </div>
 
-      <div class="bento-card bento-small">
+      <div class="bento-card bento-small reveal">
         <div class="card-glass-icon">
           <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8L12 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
         </div>
@@ -366,13 +355,13 @@
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
+<!-- ============ FOOTER (shared — identical markup/classes to index.html, styled entirely by css/index.css) ============ -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
         <a href="index.html" class="brand">
-          <img src="../assets/Logo.webp" alt="Stackly" class="brand-logo">
+          <img src="../assets/Logo.webp" alt="" class="brand-logo">
         </a>
         <p>A full-service human resources partner for growing companies — payroll, recruiting, benefits and culture, handled end to end.</p>
         <div class="footer-social">
@@ -434,8 +423,7 @@
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../js/index.js"></script>
 <script src="../js/contact.js"></script>
 </body>
 </html>

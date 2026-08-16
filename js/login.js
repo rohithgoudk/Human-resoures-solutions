@@ -1,47 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------------------------------------------------
-     Header: solid background once the page is scrolled
+     Header scroll state, hamburger, and mobile nav
+     open/close are all handled by the SHARED js/index.js
+     (identical to every other page) — none of that logic
+     lives here anymore. The old mobile-nav-scrim is gone
+     too; the shared full-screen mobile nav doesn't use one.
   --------------------------------------------------- */
-  const header = document.getElementById('siteHeader');
-  const setHeaderState = () => {
-    if (window.scrollY > 30) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
-  };
-  setHeaderState();
-  window.addEventListener('scroll', setHeaderState, { passive: true });
 
   /* ---------------------------------------------------
-     Mobile nav open / close
-  --------------------------------------------------- */
-  const hamburger = document.getElementById('hamburgerBtn');
-  const mobileNav = document.getElementById('mobileNav');
-  const mobileNavClose = document.getElementById('mobileNavClose');
-  const scrim = document.getElementById('mobileNavScrim');
-
-  const openNav = () => {
-    mobileNav.classList.add('open');
-    scrim.classList.add('show');
-    hamburger.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  };
-  const closeNav = () => {
-    mobileNav.classList.remove('open');
-    scrim.classList.remove('show');
-    hamburger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  };
-
-  hamburger.addEventListener('click', () => {
-    mobileNav.classList.contains('open') ? closeNav() : openNav();
-  });
-  mobileNavClose.addEventListener('click', closeNav);
-  scrim.addEventListener('click', closeNav);
-  mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeNav));
-  window.addEventListener('resize', () => { if (window.innerWidth > 900) closeNav(); });
-
-  /* ---------------------------------------------------
-     GSAP — page load entrance
+     GSAP — page load entrance for the auth hero + form
+     (Scroll-in reveal for the trust strip below is handled
+     by index.js's shared IntersectionObserver via .reveal —
+     not duplicated here.)
   --------------------------------------------------- */
   if (window.gsap) {
     gsap.registerPlugin(ScrollTrigger);
@@ -58,24 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
       .from('.auth-form-glass .input-group, .auth-form-glass .form-row, .auth-form-glass .btn-submit-auth, .auth-form-glass .auth-switch, .auth-form-glass .form-head', {
         y: 14, opacity: 0, duration: 0.5, stagger: 0.06
       }, '-=0.5');
-
-    /* -------------------------------------------------
-       ScrollTrigger — reveal the trust strip on scroll
-    ------------------------------------------------- */
-    gsap.utils.toArray('.reveal').forEach((el, i) => {
-      gsap.to(el, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-        delay: (i % 4) * 0.06,
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 88%',
-          toggleActions: 'play none none reverse'
-        }
-      });
-    });
 
     /* subtle parallax on the network graphic */
     gsap.to('.auth-network', {

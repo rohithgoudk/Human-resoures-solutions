@@ -5,14 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login | Stackly — Human Resources Solutions</title>
 <meta name="description" content="Sign in to your Stackly account to manage payroll, hiring, benefits and performance — all in one place.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/index.css">
 <link rel="stylesheet" href="../css/login.css">
 </head>
 <body class="hero-page auth-page">
 
-<!-- ============ HEADER ============ -->
+<!-- ============ HEADER (shared — identical markup/classes to index.html, driven entirely by css/index.css + js/index.js) ============ -->
 <header class="site-header" id="siteHeader">
   <div class="wrap">
     <a href="index.html" class="brand">
@@ -43,21 +41,25 @@
   </div>
 </header>
 
-<!-- ============ MOBILE NAV ============ -->
+<!-- ============ MOBILE NAV (shared — identical markup/classes to index.html, driven entirely by css/index.css + js/index.js) ============ -->
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
   <div class="mobile-nav-head">
-    <a href="index.html" class="mobile-nav-brand" aria-label="Stackly home">
-      <img src="../assets/Logo.webp" alt="" class="mobile-nav-logo">
+    <a href="index.html" class="brand mobile-brand" aria-label="Stackly home">
+      <img src="../assets/Logo.webp" alt="" class="brand-logo">
     </a>
     <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
       <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
     </button>
   </div>
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="about.html">About</a>
-  <a href="blog.html">Blog</a>
-  <a href="contact.html">Contact</a>
+
+  <div class="mobile-nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
   <div class="mobile-nav-ctas">
     <a href="login.html" class="btn btn-line-ink active" aria-current="page">
       <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.7"/><path d="M5 20c1.3-3.6 4-5.4 7-5.4s5.7 1.8 7 5.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
@@ -68,12 +70,12 @@
       Sign Up
     </a>
   </div>
+
   <div class="mobile-nav-foot">
     <span>stackly@info.com</span>
     <span>+161 45674567</span>
   </div>
 </nav>
-<div class="mobile-nav-scrim" id="mobileNavScrim"></div>
 
 <!-- ============ AUTH HERO / FORM ============ -->
 <section class="auth-section">
@@ -171,7 +173,7 @@
   </div>
 </section>
 
-<!-- ============ TRUST STRIP (scroll reveal) ============ -->
+<!-- ============ TRUST STRIP (scroll reveal — driven by index.js's shared IntersectionObserver) ============ -->
 <section class="section-tight trust-strip">
   <div class="wrap">
     <p class="reveal trust-strip-label">Your data, handled the way we'd want ours handled</p>
@@ -200,7 +202,7 @@
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
+<!-- ============ FOOTER (shared — identical markup/classes to index.html, styled entirely by css/index.css) ============ -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-top">
@@ -270,6 +272,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../js/index.js"></script>
 <script src="../js/login.js"></script>
 </body>
 </html>
